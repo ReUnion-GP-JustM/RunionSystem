@@ -1,0 +1,50 @@
+.myform::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+
+.myform{
+    border-radius: 20px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    background-color: #fff;
+    border-top: 5px solid red;
+    box-shadow: 0px 2px 2px 2px #ddd;
+    width: 50%;
+    height: 97%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+ 
+}
+
+.missingFormContainer{
+height: 100vh;
+}
+
+.form-group{
+    position: relative;
+   
+    //background-color: red;
+}
+.form-control , .form-select {
+    text-align: right;
+    border-radius: 25px;
+ 
+}
+.form-group i{
+    position:absolute;
+    top: 10px;
+    left: 10px;
+}
+.form-control:focus{
+    outline: none;
+}
+
+@media (max-width:1000px){
+
+    .myform{
+        width: 100%;
+    }
+}

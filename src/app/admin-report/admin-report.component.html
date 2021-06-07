@@ -1,0 +1,146 @@
+<div class="displayReport my-1">
+  <div class="container  noContainer p-3">
+     <!---Satrt fillter secction-->
+<div class="filtters">
+   <form action="" method="">
+      <div dir="rtl" class="row justify-content-start align-items-center">
+         <div class="col-md-4 my-2">
+            <div class="form-group filter_group">
+               <input class="form-control" type="text" name="name" placeholder="الاسم">
+               <i class="fa fa-user"></i>
+            </div>
+         </div>
+         <div class="col-md-4 my-2">
+            <div class="form-group filter_group">
+               <input class="form-control"  min="1"  type="number" name="ReportID" placeholder="رقم البلاغ">
+               <i class="fa fa-id-card" aria-hidden="true"></i>
+            </div>
+         </div>
+         <div class="col-md-4 my-2">
+            <div class="form-group filter_group">
+               <input class="form-control" type="date" name="Date" placeholder="">
+            </div>
+         </div>
+         <div class="col-md-4 my-2">
+            <div class="form-group filter_group">
+               <input class="form-control" min="1" type="number" name="age" placeholder="العمر">
+               <i class="fa fa-child"></i>
+            </div>
+         </div>
+         <div class="col-md-4 my-2">
+            <div class="form-group filter_group">
+               <select class="form-select text-right" aria-label="Default select example">
+                  <option selected>المحافظه</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+               </select>
+               <i class=" fa fa-map"></i>
+            </div>
+         </div>
+      </div>
+   </form>
+</div>
+  <!---end fillter secction-->
+    <!---Satrt fullpage row secction-->
+    <div *ngFor="let _reportContainer of reportContainer" class="row myrow w-75 py-3 px-2 my-4  align-items-center"> 
+           
+      <div class="col-md-3">
+          <img class="reportPic" [src]="imgSrc">
+    </div>
+    <div class="col-md-9">
+         <div  dir="rtl" class="roportInfo">
+            <h3>الاسم : {{_reportContainer.author}} </h3>
+            <h3>العمر : 21 </h3>
+            <h3>تاريخ الميلاد  : 13/9/1999 </h3>
+            <h3>الرقم القومي  : 123456789  </h3>
+            <button class="btn btn-danger m-2">حذف البلاغ</button>
+            <button class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"> عرض  التفاصيل</button>
+         </div>
+    </div>
+    </div>
+ 
+ <!---end fullpage row secction-->
+<!--- start other Vierw report-->
+
+
+   <div class="containRoport_SmallView my-4">
+      
+         <div class="smallReport_pic m-auto text-center">
+            <img class="" [src]="imgSrc">
+         </div>
+         <div class="text-center w-100 smallRepotInfo  color-dark">
+            <h3>الاسم : محممود ماجد </h3>
+            <h3>العمر : 21 </h3>
+            <h3>تاريخ الميلاد  : 13/9/1999 </h3>
+            <h3>الرقم القومي  : 123456789  </h3>
+            <button class="btn btn-danger m-2">حذف البلاغ</button>
+            <button class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"> عرض  التفاصيل</button>
+         </div>
+   </div>
+
+   <div class="containRoport_SmallView my-4">
+
+      <div class="smallReport_pic m-auto text-center">
+         <img class="" [src]="imgSrc">
+      </div>
+      <div class="text-center w-100 smallRepotInfo  color-dark">
+         <h3>الاسم : محممود ماجد </h3>
+         <h3>العمر : 21 </h3>
+         <h3>تاريخ الميلاد  : 13/9/1999 </h3>
+         <h3>الرقم القومي  : 123456789  </h3>
+         <button class="btn btn-danger m-2">حذف البلاغ</button>
+         <button class="btn btn-primary m-2"> عرض  التفاصيل</button>
+      </div>
+   </div>
+ </div>
+</div>
+<!--- end other Vierw report-->
+
+
+ 
+ <!-- Modal -->
+ <div  class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">5555555555:رقم البلاغ</h5>--> 
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4 my-2">
+                <img class="img-fluid " [src]="imgSrc">
+            </div>
+            <div class="col-md-8 my-2">
+               <div dir="rtl" class="modelDiscription">
+                  <div>
+                     <h3 class="text-center"> بيات الشخص المفقود</h3>
+                     <p> الاسم: محمود ماجد محمد</p>
+                     <p> العمر: محمود ماجد محمد</p>
+                     <p> تاريخ الميلاد: محمود ماجد محمد</p>
+                     <p> المحافطه: محمود ماجد محمد</p>
+                     <p> تاريخ البلاغ ووقت البلاغ: محمود ماجد محمد</p>
+                     <p> الرقم القومي: محمود ماجد محمد</p>
+                  </div>
+                  <div>
+                     <h3 class="text-center"> بيات المتقدم بلبلاغ</h3>
+                     <p> الاسم: محمود ماجد محمد</p>
+                     <p> الرقم القومي: محمود ماجد محمد</p>
+                     <p>   البريد الالكتروني: محمود ماجد محمد</p>
+                     <p>   رقم الهاتف: محمود ماجد محمد</p>
+                  </div>
+                  
+               </div>
+           </div>
+          </div>
+        
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-danger">حذف البلاغ</button>
+         <button type="button" class="btn btn-primary"> ايداع الي الارشيف</button>
+       </div>
+     </div>
+   </div>
+ </div>

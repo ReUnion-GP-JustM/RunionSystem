@@ -1,0 +1,158 @@
+<section class="fullPgeContainere w-100 h-100">
+    <section class="rightPart">
+        <div class="option mb-2">
+            <div class="optionHeader">
+                <div class="optionTitle">
+                    <h3> البلاغات</h3>
+                </div>
+                <div (click)="changeArrow(0)" class="optionArrow">
+                    <i *ngIf="collapase[0]" class="fa fa-angle-down"></i>
+                    <i *ngIf="!collapase[0]" class="fa fa-angle-up "></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+              
+            <!---option body--> 
+            <div *ngIf="!collapase[0]" class="optionBody mt-1">
+                <div class="optionBodyItem mb-2">
+                    <h4 (click)="changeAsideNav('adminReport')">عرض البلاغات</h4>
+                    
+                </div>
+                <div class="optionBodyItem mb-2">
+                    <h4 (click)="changeAsideNav('adminReportHistory')">الارشيف</h4>
+                </div>
+            </div>             
+        </div>
+        <div class="option mb-2">
+            <div class="optionHeader">
+                <div class="optionTitle">
+                    <h3>  المفقودين</h3>
+                </div>
+                <div (click)="changeArrow(1)" class="optionArrow">
+                    <i *ngIf="collapase[1]" class="fa fa-angle-down"></i>
+                    <i *ngIf="!collapase[1]" class="fa fa-angle-up "></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+              
+            <!---option body--> 
+            <div *ngIf="!collapase[1]" class="optionBody mt-1">
+                <div class="optionBodyItem mb-2">
+                  <h4>عرض المفقودين</h4>
+                </div>
+                <div class="optionBodyItem mb-2">
+                    <h4 (click)="changeAsideNav('addMissing')">اضافه مفقود</h4>
+                </div>
+                <div class="optionBodyItem mb-2">
+                  <h4>الارشيف</h4>
+                </div>
+            </div>             
+        </div>
+        <div class="option mb-2">
+            <div class="optionHeader">
+                <div class="optionTitle">
+                    <h3>   اعدادات الحساب</h3>
+                </div>
+                <div (click)="changeArrow(2)" class="optionArrow">
+                    <i *ngIf="collapase[2]" class="fa fa-angle-down"></i>
+                    <i *ngIf="!collapase[2]" class="fa fa-angle-up "></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+              
+            <!---option body--> 
+            <div *ngIf="!collapase[2]" class="optionBody mt-1">
+                <div class="optionBodyItem mb-2">
+                 <h4> تغير كلمه المرور</h4> 
+                </div>
+            </div>             
+        </div>
+        <div class="option mb-2">
+            <div class="optionHeader">
+                <div class="optionTitle">
+                    <h3>   اقسام الشرطه</h3>
+                </div>
+                <div (click)="changeArrow(3)" class="optionArrow">
+                    <i *ngIf="collapase[3]" class="fa fa-angle-down"></i>
+                    <i *ngIf="!collapase[3]" class="fa fa-angle-up "></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+              
+            <!---option body--> 
+            <div *ngIf="!collapase[3]" class="optionBody mt-1">
+                <div class="optionBodyItem mb-2">
+                   <h4>عرض  جميع اقسام الشرطه</h4>
+                </div>
+                <div class="optionBodyItem mb-2">
+                     <h4>  حذف قسم شرطه</h4>
+                </div>
+                <div class="optionBodyItem mb-2">
+                   <h4>طلبات تسجل اقسام شرطه جديده</h4>
+                </div>
+                <div class="optionBodyItem mb-2">
+                     <h4>اضافه  قسم شرطه جديده</h4>
+                </div>
+            </div>             
+        </div>
+        <div class="option mb-2">
+            <div class="optionHeader">
+                <div class="optionTitle">
+                    <h3>الملاجئ ودور الرعايه</h3>
+                </div>
+                <div (click)="changeArrow(4)" class="optionArrow">
+                    <i *ngIf="collapase[4]" class="fa fa-angle-down"></i>
+                    <i *ngIf="!collapase[4]" class="fa fa-angle-up "></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+              
+            <!---option body--> 
+            <div *ngIf="!collapase[4]" class="optionBody mt-1">
+                <div class="optionBodyItem mb-2">
+                    <h4>عرض  جميع  الملاجئ ودور الرعايه</h4>
+                </div>
+                <div class="optionBodyItem mb-2">
+                     <h4>  حذف  الملاجئ او ودور الرعايه</h4>
+                </div>
+                <div class="optionBodyItem mb-2">
+                     <h4>طلبات تسجل الملاجئ او ودور الرعايه</h4>
+                </div>
+                <div class="optionBodyItem mb-2">
+                    <h4>اضافه الملاجئ او ودور الرعايه</h4>
+                </div>
+            </div>             
+        </div>
+        <div class="option mb-2">
+            <div class="optionHeader">
+                <div class="optionTitle">
+                    <h3>تسجيل الخروج</h3>
+                </div>
+                <div class="optionArrow">
+                    <i class="fa fa-window-close" aria-hidden="true"></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+              
+            <!---option body-->          
+        </div>
+    </section>
+
+    <section class="leftPart h-100">
+        <div class="toggleRightPart">
+            <span id="open" class="open font-weight-bold  fa-2x">☰</span>
+            <span id="close" class="close font-weight-bold  fa-2x hidden">X</span>
+        </div>
+           <div class="container">
+               <div [ngSwitch]="displayoption" class="w-100">
+                <app-admin-report  *ngSwitchCase="'adminReport'"></app-admin-report>
+                <app-reporthistory *ngSwitchCase="'adminReportHistory'"></app-reporthistory>
+                <app-reporthistory *ngSwitchCase="'displayMissing'"></app-reporthistory>
+                <app-add-missing   *ngSwitchCase="'addMissing'"></app-add-missing>
+               </div>
+           
+           </div>
+    </section>
+
+    <div class="clearfix"></div>
+</section>

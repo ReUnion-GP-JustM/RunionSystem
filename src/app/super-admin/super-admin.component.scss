@@ -1,0 +1,131 @@
+
+*{
+    overflow: hidden;
+}
+
+$mainColor:#335861;
+$whiteColoer:#fff;
+/*Start right Part*/
+.rightPart{
+    width: 23%;
+    position: fixed;
+    top: 0;
+    right:-100%;
+    bottom: 0;
+    float: right;
+    background-color: $mainColor;
+    padding:30px 5px;
+    overflow:auto ;
+}
+
+.option{
+    text-align: right;
+    padding: 3px 10px;
+    background-color: $whiteColoer;
+    border-radius: 25px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.optionHeader{
+    color:$mainColor;
+}
+.optionTitle{
+    float: right;
+    width: 85%;
+    
+}
+.optionTitle h3  {
+    font-size:23px;
+    margin: auto;
+}
+.optionArrow{
+    float: left;
+    width: 15%;
+    font-size: 25px;
+}
+.optionBody{
+  transition: display 5s;
+}
+.optionBodyItem h4{
+    text-decoration: none;
+    color: $whiteColoer;
+    font-size: 20px;
+    padding-right: 5px;
+}
+.optionBodyItem{
+    text-align: right;
+    padding: 5px 5px;
+    background-color: $mainColor;
+    border-radius: 20px;
+}
+/*end right section*/
+
+/*Start left section*/
+.leftPart{
+    width: 100%;
+    float: left;
+   // height: 100vh;
+    padding: 5px;
+ //   position: fixed;
+
+}
+.toggleRightPart{
+    position: fixed;
+    right:2%;
+    top: 0%;
+    text-align: right;
+    cursor: pointer;
+    padding: 2px 10px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    background-color: $mainColor;
+    color: $whiteColoer;
+    z-index: 22222;
+}
+#close{
+    display: none;
+}
+
+@media (min-width: 10001px) and (max-width:1350px){
+    .rightPart{
+        width: 25%;
+    }
+    .leftPart{
+        padding: 15px;}
+   
+    .optionTitle h3 {
+    font-size:20px;
+     }
+     .optionBodyItem h4 {
+         font-size: 18px;
+     }
+}
+
+@media (max-width:1000px){
+    .rightPart{
+        width:38%;
+    }
+    .optionTitle h3 {
+    font-size:18px;
+     }
+     .optionBodyItem h4 {
+         font-size: 14px;
+     }
+}
+
+
+@media  (max-width:600px){
+    .rightPart{
+        width:40%;
+    }
+    .leftPart{
+       padding: 0px;
+    }
+   
+    .optionTitle h3 {
+    font-size:16px;
+     }
+     .optionBodyItem h4 {
+         font-size:12px;
+     }
+}

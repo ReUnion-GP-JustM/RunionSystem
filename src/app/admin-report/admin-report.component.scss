@@ -1,0 +1,100 @@
+$mainColor:#335861;
+$whiteColoer:#fff;
+.reportPic{
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px 1px #ddd;
+    height: 200px;
+    width: 200px;
+}
+.displayReport{
+    width: 100%;
+}
+.displayReport .myrow{
+    width: 100%;
+    border-top-left-radius: 120px;
+    border-bottom-left-radius: 120px;
+    background-color: $mainColor;
+    margin: auto;
+    
+}
+.roportInfo{
+    text-align: right;
+     color: $whiteColoer;
+}
+
+/*=====================small view =============*/
+.containRoport_SmallView{
+    background-color: $mainColor;
+    color: $whiteColoer;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin: auto;
+    border: 1px solid $mainColor;
+    display: none;
+}
+.smallReport_pic img{
+    margin: 25px;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+/*end*/
+/*start filter_group*/
+.filter_group{
+    position: relative;
+   
+    //background-color: red;
+}
+.form-control , .form-select {
+    text-align: right;
+    border-radius: 25px;
+}
+.filter_group i{
+    position:absolute;
+    top: 10px;
+    left: 10px;
+}/*end*/
+/*start model*/
+.modal{
+    z-index: 8888888888888888;
+}
+.modal-dialog{
+    max-width: 800px !important;
+   
+}
+@media (max-width: 995px){
+    .displayReport .myrow{    
+        display: none;
+    }
+    .containRoport_SmallView{
+        display: block;
+    }
+    .displayReport{
+        padding: 25px;
+    }
+    .noContainer{
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+}
+@media (max-width: 600px){
+    .noContainer{
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+    .smallReport_pic img{
+        margin: 25px;
+        border-radius: 50%;
+        height: 120px;
+        width: 120px;
+    }
+    .displayReport{
+        padding: 5px;
+    }
+    .smallRepotInfo h3{
+        font-size: 18px;
+    }
+    .filtters{
+        margin-top: 50px !important;
+    }
+}
