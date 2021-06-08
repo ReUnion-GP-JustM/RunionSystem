@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators  } from '@angular/forms';
 import { HomelessService } from '../homeless.service'
 @Component({
   selector: 'app-add-missing',
@@ -7,7 +7,7 @@ import { HomelessService } from '../homeless.service'
   styleUrls: ['./add-missing.component.scss']
 })
 export class AddMissingComponent implements OnInit {
-
+  images:any;
   constructor(public _HomelessService: HomelessService) { }
 
   addMissing = new FormGroup({
@@ -30,9 +30,33 @@ export class AddMissingComponent implements OnInit {
 
   }
 
-
+  selectImage(event:any){
+        if(event.target.files.length>0){
+          const file = event.target.files[0];
+          this.images = file;
+          console.log(this.images);
+          
+        }
+  }
   handelAddMissing() {
     if (this.addMissing.valid) {
+  
+      const formData = new  FormData();
+      formData.append("img" ,this.images);
+      formData.append("name" ,this.addMissing.controls.name.value);
+      formData.append("endAge" ,this.addMissing.controls.age.value +5);
+      formData.append("startAge" ,this.addMissing.controls.age.value);
+      formData.append("gender" ,this.addMissing.controls.gender.value);
+
+      
+     let searchObject = {
+      name: this.addMissing.controls.name.value,
+      endAge: this.addMissing.controls.age.value +5,
+      startAge :this.addMissing.controls.age.value,
+      gender:this.addMissing.controls.gender.value,
+      // img: this.addMissing.controls.image.value
+     }
+
 
       let object = {
         name: this.addMissing.controls.name.value,
@@ -48,8 +72,9 @@ export class AddMissingComponent implements OnInit {
         phoneNumber: this.addMissing.controls.description.value,
         finderEmail: this.addMissing.controls.finderEmail.value,
       }
-      console.log(object);
-      this._HomelessService.seachINReport(object).subscribe(response => {
+      console.log(searchObject);
+      
+      this._HomelessService.seachINReport(formData).subscribe(response => {
         console.log(response);
 
       })

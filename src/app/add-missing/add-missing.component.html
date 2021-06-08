@@ -1,5 +1,5 @@
 <div class="missingFormContainer my-3  p-2 w-100 d-flex justify-content-center align-items-center">
-    <form [formGroup]="addMissing" class="myform mb-2" (ngSubmit)="addMissing.valid && handelAddMissing() ">
+    <form enctype="multipart/form-data" [formGroup]="addMissing" class="myform mb-2" (ngSubmit)="addMissing.valid && handelAddMissing() ">
         <div class="row p-2" dir="rtl">
             <div class="col-md-12 text-center  my-2">
                 <h3>بيانات اليتيم</h3>
@@ -20,6 +20,7 @@
                     <input formControlName="age" [class.is-valid]="addMissing.controls.age.status == 'VALID' "
                         class="form-control" min="1"  type="number" placeholder="العمر">
                     <i class="fa fa-child"></i>
+                    
                 </div>
                 <div *ngIf="addMissing.controls.age.errors && addMissing.controls.age.touched"
                     class="form-group alert alert-danger my-2">
@@ -59,8 +60,8 @@
             </div>
             <div class="col-md-6 my-2">
                 <div class="form-group my-2">
-                    <input name="img" [class.is-valid]="addMissing.controls.image.status == 'VALID' "
-                        formControlName="image" type="file" class="form-control">
+                    <input  name="image" [class.is-valid]="addMissing.controls.image.status == 'VALID' "
+                        formControlName="image" type="file" class="form-control" (change)="selectImage($event)">
 
                 </div>
                 <div *ngIf="addMissing.controls.image.errors && addMissing.controls.image.touched"
