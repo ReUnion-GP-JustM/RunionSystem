@@ -1,6 +1,14 @@
+
+
+<!-- <app-map></app-map> -->
+
 <section class="fullPgeContainere w-100 h-100">
-    <section class="rightPart">
-        <div class="option mb-2">
+    <section class="rightPart pt-5">
+              
+        <div class="mt-4 text-center" dir="rtl">
+            <img *ngIf="profImage" class="profImg" src="http://localhost:3000/{{profImage}}"> <h3 *ngIf="userName" class="text-light"> {{userName}}</h3>
+        </div>
+        <div *ngIf='userRole == "superAdmin" || userRole == "policeStation"' class="option mb-2">
             <div class="optionHeader">
                 <div class="optionTitle">
                     <h3> البلاغات</h3>
@@ -11,22 +19,22 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-              
-            <!---option body--> 
+
+            <!---option body-->
             <div *ngIf="!collapase[0]" class="optionBody mt-1">
-                <div class="optionBodyItem mb-2">
-                    <h4 (click)="changeAsideNav('adminReport')">عرض البلاغات</h4>
-                    
+                <div class="optionBodyItem mb-2" (click)="changeAsideNav('adminReport')">
+                    <h4 class="close">عرض البلاغات</h4>
+
                 </div>
-                <div class="optionBodyItem mb-2">
-                    <h4 (click)="changeAsideNav('adminReportHistory')">الارشيف</h4>
+                <div class="optionBodyItem mb-2" (click)="changeAsideNav('adminReportHistory')">
+                    <h4 class="close">الارشيف</h4>
                 </div>
-            </div>             
+            </div>
         </div>
         <div class="option mb-2">
             <div class="optionHeader">
                 <div class="optionTitle">
-                    <h3>  المفقودين</h3>
+                    <h3> المفقودين</h3>
                 </div>
                 <div (click)="changeArrow(1)" class="optionArrow">
                     <i *ngIf="collapase[1]" class="fa fa-angle-down"></i>
@@ -34,43 +42,36 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-              
-            <!---option body--> 
-            <div *ngIf="!collapase[1]" class="optionBody mt-1">
-                <div class="optionBodyItem mb-2">
-                  <h4>عرض المفقودين</h4>
+
+            <!---option body-->
+            <div *ngIf="!collapase[1] " class="optionBody mt-1">
+                <div *ngIf='userRole == "superAdmin" || userRole == "policeStation"' >
+                    <div class="optionBodyItem mb-2" (click)="changeAsideNav('getAllHomeless')">
+                        <h4>عرض المفقودين</h4>
+                    </div> 
+                    <div class="optionBodyItem mb-2" (click)="changeAsideNav('addMissing')">
+                        <h4>اضافه مفقود</h4>
+                    </div>
+                    <div class="optionBodyItem mb-2" (click)="changeAsideNav('homelessHistory')">
+                        <h4>الارشيف</h4>
+                    </div>
                 </div>
-                <div class="optionBodyItem mb-2">
-                    <h4 (click)="changeAsideNav('addMissing')">اضافه مفقود</h4>
+                <div *ngIf='userRole == "shelter" ' >
+                    <div class="optionBodyItem mb-2" (click)="changeAsideNav('shelterHomeLess')">
+                        <h4>عرض المفقودين</h4>
+                    </div>
+                    <div class="optionBodyItem mb-2" (click)="changeAsideNav('shelterhomelessHistory')">
+                        <h4>الارشيف</h4>
+                    </div>
                 </div>
-                <div class="optionBodyItem mb-2">
-                  <h4>الارشيف</h4>
-                </div>
-            </div>             
-        </div>
-        <div class="option mb-2">
-            <div class="optionHeader">
-                <div class="optionTitle">
-                    <h3>   اعدادات الحساب</h3>
-                </div>
-                <div (click)="changeArrow(2)" class="optionArrow">
-                    <i *ngIf="collapase[2]" class="fa fa-angle-down"></i>
-                    <i *ngIf="!collapase[2]" class="fa fa-angle-up "></i>
-                </div>
-                <div class="clearfix"></div>
+               
             </div>
-              
-            <!---option body--> 
-            <div *ngIf="!collapase[2]" class="optionBody mt-1">
-                <div class="optionBodyItem mb-2">
-                 <h4> تغير كلمه المرور</h4> 
-                </div>
-            </div>             
         </div>
-        <div class="option mb-2">
+       
+        <div *ngIf='userRole == "superAdmin" '  class="option mb-2">
             <div class="optionHeader">
                 <div class="optionTitle">
-                    <h3>   اقسام الشرطه</h3>
+                    <h3> اقسام الشرطه</h3>
                 </div>
                 <div (click)="changeArrow(3)" class="optionArrow">
                     <i *ngIf="collapase[3]" class="fa fa-angle-down"></i>
@@ -78,24 +79,21 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-              
-            <!---option body--> 
+
+            <!---option body-->
             <div *ngIf="!collapase[3]" class="optionBody mt-1">
-                <div class="optionBodyItem mb-2">
-                   <h4>عرض  جميع اقسام الشرطه</h4>
+                <div class="optionBodyItem mb-2" (click)="changeAsideNav('getAllPoliceStations')">
+                    <h4>عرض جميع اقسام الشرطه</h4>
+                </div>
+                <div class="optionBodyItem mb-2" (click)="changeAsideNav('getAllPoliceStationsRequest')">
+                    <h4>طلبات تسجل اقسام شرطه جديده</h4>
                 </div>
                 <div class="optionBodyItem mb-2">
-                     <h4>  حذف قسم شرطه</h4>
+                    <h4>اضافه قسم شرطه جديده</h4>
                 </div>
-                <div class="optionBodyItem mb-2">
-                   <h4>طلبات تسجل اقسام شرطه جديده</h4>
-                </div>
-                <div class="optionBodyItem mb-2">
-                     <h4>اضافه  قسم شرطه جديده</h4>
-                </div>
-            </div>             
+            </div>
         </div>
-        <div class="option mb-2">
+        <div *ngIf='userRole == "superAdmin"' class="option mb-2">
             <div class="optionHeader">
                 <div class="optionTitle">
                     <h3>الملاجئ ودور الرعايه</h3>
@@ -106,26 +104,49 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-              
-            <!---option body--> 
+
+            <!---option body-->
             <div *ngIf="!collapase[4]" class="optionBody mt-1">
-                <div class="optionBodyItem mb-2">
-                    <h4>عرض  جميع  الملاجئ ودور الرعايه</h4>
+                <div class="optionBodyItem mb-2" (click)="changeAsideNav('getAllShelter')">
+                    <h4>عرض جميع الملاجئ ودور الرعايه</h4>
                 </div>
-                <div class="optionBodyItem mb-2">
-                     <h4>  حذف  الملاجئ او ودور الرعايه</h4>
-                </div>
-                <div class="optionBodyItem mb-2">
-                     <h4>طلبات تسجل الملاجئ او ودور الرعايه</h4>
+                <div class="optionBodyItem mb-2" (click)="changeAsideNav('shelterRequstToJoin')">
+                    <h4>طلبات تسجل الملاجئ او ودور الرعايه</h4>
                 </div>
                 <div class="optionBodyItem mb-2">
                     <h4>اضافه الملاجئ او ودور الرعايه</h4>
                 </div>
-            </div>             
+            </div>
         </div>
         <div class="option mb-2">
             <div class="optionHeader">
                 <div class="optionTitle">
+                    <h3> اعدادات الحساب</h3>
+                </div>
+                <div (click)="changeArrow(2)" class="optionArrow">
+                    <i *ngIf="collapase[2]" class="fa fa-angle-down"></i>
+                    <i *ngIf="!collapase[2]" class="fa fa-angle-up "></i>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <!---option body-->
+            <div *ngIf="!collapase[2]" class="optionBody mt-1">
+                <div (click)="changeAsideNavTwo('password')" data-bs-toggle="modal" data-bs-target="#updatePassword" class="optionBodyItem mb-2 closeover" >
+                    <h4> تغير كلمه المرور</h4>
+                </div>
+                <div (click)="changeAsideNavTwo('img')" data-bs-toggle="modal" data-bs-target="#imageModal" class="optionBodyItem mb-2 closeover" >
+                    <h4> تغير صوره الحساب</h4>
+                </div>
+                <div (click)="changeAsideNavTwo('userNameandLocation')" data-bs-toggle="modal" data-bs-target="#updateuserInfoModal" class="optionBodyItem mb-2 closeover" >
+                    <h4> تغير اسم المستخدم والعنوان </h4>
+                </div>
+                
+            </div>
+        </div>
+        <div class="option mb-2">
+            <div (click)="signOut()" class="optionHeader">
+                <div class="optionTitle" >
                     <h3>تسجيل الخروج</h3>
                 </div>
                 <div class="optionArrow">
@@ -133,26 +154,373 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-              
-            <!---option body-->          
+
+            <!---option body-->
         </div>
     </section>
 
-    <section class="leftPart h-100">
+    <section class="ll"></section>
+    <section *ngIf="dash">
+
+        <div class="container py-5" dir="rtl">
+            <!-- <div class="my-2 prof">
+                <img src="../../assets/imgs/n2.jpg">
+            </div> -->
+            <div class="row align-items-center p-5">
+                <div  *ngIf='userRole == "superAdmin" || userRole == "policeStation"' class="col-lg-4 col-md-6 my-2">
+                    <div   class="select p-3 d-flex justify-content-center align-items-center bg-light img1">
+                        <div class="select_overLay p-3 d-flex justify-content-center align-items-center  ">
+                            <div class="w-100">
+                                <div class="optionBodyItemh4 mb-2" (click)="changeAsideNav('adminReport')">
+                                    <h4 class="">عرض البلاغات</h4>
+                                </div>
+                                <div class="optionBodyItemh4  mb-2" (click)="changeAsideNav('adminReportHistory')">
+                                    <h4 class="">الارشيف</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center " >
+                            <!-- <img src="../../assets/imgs/policejpg.jpg" class="img-fluid" alt=""> -->
+                            <!-- <i class="fa fa-file fa-5x my-3"></i> -->
+                            <h3>البلاغات</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6  my-2">
+                    <div class="select p-3 d-flex justify-content-center align-items-center bg-light img2">
+                        <div class="select_overLay p-3 d-flex justify-content-center align-items-center  ">
+                            <div *ngIf='userRole == "superAdmin" || userRole == "policeStation"'  class="w-100">
+                                <div class="optionBodyItemh4 mb-2"  (click)="changeAsideNav('getAllHomeless')">
+                                    <h4 class="">عرض المفقودين</h4>
+                                </div>
+                                <div class="optionBodyItemh4  mb-2"  (click)="changeAsideNav('addMissing')">
+                                    <h4 class="">اضافه مفقود</h4>
+                                </div>
+                                <div class="optionBodyItemh4  mb-2" (click)="changeAsideNav('homelessHistory')">
+                                    <h4 class="">الارشيف</h4>
+                                </div>
+                            </div>
+                            <div *ngIf='userRole == "shelter" '  class="w-100">
+                                <div class="optionBodyItemh4 mb-2"  (click)="changeAsideNav('shelterHomeLess')">
+                                    <h4 class="">عرض المفقودين</h4>
+                                </div>
+                                <div class="optionBodyItemh4  mb-2" (click)="changeAsideNav('shelterhomelessHistory')">
+                                    <h4 class="">الارشيف</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <!-- <i class="fa fa-file fa-5x my-3"></i> -->
+                            <h3>المفقودين</h3>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='userRole == "superAdmin" ' class="col-lg-4 col-md-6  my-2">
+                    <div class="select p-3 d-flex justify-content-center align-items-center bg-light img3">
+                        <div class="select_overLay p-3 d-flex justify-content-center align-items-center  ">
+                            <div class="w-100">
+                                <div class="optionBodyItemh4 mb-2" (click)="changeAsideNav('getAllPoliceStations')">
+                                    <h4>عرض جميع اقسام الشرطه</h4>
+                                </div>
+                                <div class="optionBodyItemh4  mb-2"(click)="changeAsideNav('getAllPoliceStationsRequest')">
+                                    <h4>طلبات تسجل اقسام شرطه جديده</h4>
+                                </div>
+                                <div class="optionBodyItemh4  mb-2"(click)="changeAsideNav('getAllPoliceStationsRequest')">
+                                    <h4>اضافه قسم شرطه جديده</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <!-- <i class="fa fa-file fa-5x my-3"></i> -->
+                            <!-- <h3>اقسام البلوليس</h3> -->
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='userRole == "superAdmin" ' class="col-lg-4 col-md-6 my-2">
+                    <div class="select p-3 d-flex justify-content-center align-items-center bg-light img4">
+                        <div class="select_overLay p-3 d-flex justify-content-center align-items-center  ">
+                            <div class="w-100">
+                                <div class="optionBodyItemh4 mb-2" (click)="changeAsideNav('getAllShelter')">
+                                    <h4>عرض جميع الملاجئ ودور الرعايه</h4>
+                                </div>
+                                <div class="optionBodyItemh4  mb-2" (click)="changeAsideNav('shelterRequstToJoin')">
+                                    <h4>طلبات تسجل الملاجئ او ودور الرعايه</h4>
+                                </div>
+                                <div class="optionBodyItemh4  mb-2" (click)="changeAsideNav('shelterRequstToJoin')">
+                                       <h4>اضافه الملاجئ او ودور الرعايه</h4>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <!-- <i class="fa fa-file fa-5x my-3"></i> -->
+                            <h3>الملاجئ ودور الرعايه</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6  my-2">
+                    <div class="select p-3 d-flex justify-content-center align-items-center bg-light img5">
+                        <div class="select_overLay p-3 d-flex justify-content-center align-items-center  ">
+                            <div class="w-100">
+                                <div id="" data-bs-toggle="modal" data-bs-target="#updatePassword" class="optionBodyItemh4 mb-2"  >
+                                    <h4 class=""> تغير كلمه السر </h4>
+                                </div>
+                                <div  id="" data-bs-toggle="modal" data-bs-target="#imageModal" class="optionBodyItemh4  mb-2 " >
+                                    <h4 class="">تغير صوره الحساب</h4>
+                                </div>
+                                <div  id="" data-bs-toggle="modal" data-bs-target="#updateuserInfoModal" class="optionBodyItemh4  mb-2 " >
+                                    <h4 class="">تغير اسم المستخدم والعنوان </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <!-- <i class="fa fa-cog fa-5x my-3"></i> -->
+                            <h3>البلاغات</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="leftPart h-100 ">
         <div class="toggleRightPart">
             <span id="open" class="open font-weight-bold  fa-2x">☰</span>
             <span id="close" class="close font-weight-bold  fa-2x hidden">X</span>
         </div>
-           <div class="container">
-               <div [ngSwitch]="displayoption" class="w-100">
-                <app-admin-report  *ngSwitchCase="'adminReport'"></app-admin-report>
-                <app-reporthistory *ngSwitchCase="'adminReportHistory'"></app-reporthistory>
+        <div class="container">
+            <div [ngSwitch]="displayoption" class="w-100">
+                <app-super-admin-dash-bored *ngSwitchCase="'superadminDashBored'"></app-super-admin-dash-bored>
+                <app-admin-report *ngSwitchCase="'adminReport'"></app-admin-report>
+                <app-reporthistory *ngSwitch Case="'adminReportHistory'"></app-reporthistory>
                 <app-reporthistory *ngSwitchCase="'displayMissing'"></app-reporthistory>
-                <app-add-missing   *ngSwitchCase="'addMissing'"></app-add-missing>
-               </div>
-           
-           </div>
+                <app-add-missing *ngSwitchCase="'addMissing'"></app-add-missing>
+                <app-get-all-homeless *ngSwitchCase="'getAllHomeless'"></app-get-all-homeless>
+                <app-get-all-police-stations *ngSwitchCase="'getAllPoliceStations'"></app-get-all-police-stations>
+                <app-request-to-join-police-station *ngSwitchCase="'getAllPoliceStationsRequest'">
+                </app-request-to-join-police-station>
+                <app-get-all-shelters *ngSwitchCase="'getAllShelter'"></app-get-all-shelters>
+                <app-shelter-request-to-join *ngSwitchCase="'shelterRequstToJoin'"></app-shelter-request-to-join>
+                <app-homless-history *ngSwitchCase="'homelessHistory'"></app-homless-history>
+                <app-shelter-home-less *ngSwitchCase="'shelterHomeLess'"></app-shelter-home-less>
+                <app-shelter-home-less-history *ngSwitchCase="'shelterhomelessHistory'"></app-shelter-home-less-history>
+
+            </div>
+
+        </div>
     </section>
 
     <div class="clearfix"></div>
 </section>
+
+
+<!-- updatePassword -->
+
+<!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="updatePassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog updateModel">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">تغير كلمه السر </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <section class="searchSection">
+                <div id="search" class="w-100  d-flex justify-content-center align-items-center ">
+        
+                    <form *ngIf="searchForm" [formGroup]="updatePasswordForm" class="mySearchForm mb-2"
+                        (ngSubmit)="updatePasswordForm.valid && handelUpdatePassword()">
+                        <div class="row p-2" dir="rtl">
+                            <!-- <div class="col-md-12 text-center  my-2">
+                                <h3>بيانات المفقود</h3>
+                            </div> -->
+                            <div class="col-md-12 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="oldPassword"
+                                        [class.is-valid]="updatePasswordForm.controls.oldPassword.status == 'VALID' " class="form-control"
+                                        type="password" placeholder="كلمه السر">
+                                    <i class="fa fa-lock"></i>
+                                </div>
+                                <div *ngIf="updatePasswordForm.controls.oldPassword.errors && updatePasswordForm.controls.oldPassword.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال كلمه سر صحيحه </p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="newPassword"
+                                        [class.is-valid]="updatePasswordForm.controls.newPassword.status == 'VALID' " class="form-control"
+                                        type="password" placeholder="كلمه السر الجديده">
+                                    <i class="fa fa-lock"></i>
+                                </div>
+                                <div *ngIf="updatePasswordForm.controls.newPassword.errors && updatePasswordForm.controls.newPassword.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال كلمه سر صحيحه </p>
+                                </div>
+                            </div> <div class="col-md-12 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="cNewPassword"
+                                        [class.is-valid]="updatePasswordForm.controls.cNewPassword.status == 'VALID' " class="form-control"
+                                        type="password" placeholder="تاكيد كلمه السر  الجديده">
+                                    <i class="fa fa-lock"></i>
+                                </div>
+                                <div *ngIf="updatePasswordForm.controls.cNewPassword.errors && updatePasswordForm.controls.cNewPassword.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال كلمه سر صحيحه </p>
+                                </div>
+                            </div>
+                         
+                            <div class="col-md-12 my-2">
+                                <div class="form-group my-2 text-center">
+                                    <button [disabled]="updatePasswordForm.invalid"
+                                        class=" btn btn-danger w-100 form-control text-center">
+                                        تحديث</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <div class="">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- upload img -->
+
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog updateModel">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">تغير صوره الحساب  </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <section class="searchSection">
+                <div id="search" class="w-100  d-flex justify-content-center align-items-center ">
+        
+                    <form *ngIf="searchForm" [formGroup]="uploadImg" class="mySearchForm mb-2"
+                        (ngSubmit)="uploadImg.valid && handeluploadImg()">
+                        <div class="row p-2" >
+                            <!-- <div class="col-md-12 text-center  my-2">
+                                <img src="/">
+                            </div> -->
+                            <div class="col-md-12 my-2">
+                                <div class="form-group my-2">
+                                    <input (change)="selectImage($event)" formControlName="img"
+                                        [class.is-valid]="uploadImg.controls.img.status == 'VALID' " class="form-control"
+                                        type="file" placeholder=" ">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div *ngIf="uploadImg.controls.img.errors && uploadImg.controls.img.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادراج الصوره    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 my-2">
+                                <div class="form-group my-2 text-center">
+                                    <button [disabled]="uploadImg.invalid"
+                                        class=" btn btn-danger w-100 form-control text-center">
+                                        تحديث</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <div class="">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- update userName & Loaction-->
+  <div class="modal fade" id="updateuserInfoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog updateModel">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">تغير اسم المستخدم و العنوان  </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <section class="searchSection">
+                <div id="search" class="w-100  d-flex justify-content-center align-items-center ">
+        
+                    <form [formGroup]="updateInfo" class="mySearchForm updateInfo mb-2"
+                        (ngSubmit)="updateInfo.valid && handelUpdateInfo()">
+                        <div class="row p-2" dir="ltr">
+                            <div class="col-md-12 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="userName"
+                                        [class.is-valid]="updateInfo.controls.userName.status == 'VALID' " class="form-control"
+                                        type="text" placeholder="UserName">
+                                </div>
+                                <div *ngIf="updateInfo.controls.userName.errors && updateInfo.controls.userName.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال اسم المستخدم   </p>
+                                </div>
+                            </div>
+                            <div data-bs-toggle="modal" data-bs-target="#mapModal"  class="col-md-12 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="location"
+                                        [class.is-valid]="updateInfo.controls.location.status == 'VALID' " class="form-control"
+                                        type="text" placeholder="location">
+                                </div>
+                                <div *ngIf="updateInfo.controls.location.errors && updateInfo.controls.location.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء اختيار الموقع </p>
+                                </div>
+                            </div> 
+                         
+                            <div class="col-md-12 my-2">
+                                <div class="form-group my-2 text-center sbu" >
+                                    <button [disabled]="updateInfo.invalid"
+                                        class=" btn btn-danger w-100 form-control text-center con2">
+                                        تحديث</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <div class="">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="mapCoords($event)" >
+
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+              </agm-map>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

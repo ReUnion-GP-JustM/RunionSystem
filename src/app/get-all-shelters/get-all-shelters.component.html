@@ -1,0 +1,123 @@
+<div class="overLay" *ngIf="load">
+    <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+        <i class="fa fa-spinner fa-5x fa-spin"></i>
+    </div>
+</div>
+
+
+
+
+    <!---Satrt fillter secction-->
+<div class="filtters">
+   
+   <div dir="rtl" class="row justify-content-center align-items-center">
+       <div class="col-md-4 my-2">
+           <div class="form-group filter_group">
+               <input [(ngModel)]="term" class="form-control" type="text" name="name"
+                   placeholder="userName">
+               <i class="fa fa-search"></i>
+           </div>
+       </div>
+   </div>
+</div>
+<!---end fillter secction-->
+
+
+<div *ngIf="shelterList.length > 0 ; else noPolice" class="stationList">
+
+
+    
+
+    <div class="container p-5 my-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">userName</th>
+                    <th scope="col" class="del">email</th>
+                    <th scope="col">action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let _shelterList of shelterList|userSearch:term ; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{_shelterList.userName}}</td>
+                    <td class="del">{{_shelterList.email}}</td>
+                    <td><button (click)="getShlterInfo(i)" class="btn detailsbtnSmall" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"> التفاصيل</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<ng-template #noPolice>
+    <div class="row w-100 h-100 text-center justify-content-center align-items-center">
+        can not find any police stations
+    </div>
+</ng-template>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 class="modal-title" id="exampleModalLabel">بيانات قسم البوليس
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form [formGroup]="changeRole" (ngSubmit)="changeRole.valid && changeUserRole()" class="my-2 p-3">
+
+                <div *ngIf="shelterRecord.length > 0 ; else noPoliceModel" class="modal-body" dir="rtl">
+                    <p> <span>الاسم : </span>{{shelterRecord[0].userName}}</p>
+                    <p> <span>موافقه الادمن :</span> {{shelterRecord[0].aprove}}</p>
+                    <p> <span>تاكيد البريد الالكتروني :</span> {{shelterRecord[0].confirmEmail}}</p>
+                    <p class="text-center"> <a href="{{shelterRecord[0].location}}" target="_blank">العنوان</a></p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="p-2">
+                                الصلاحيه
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="p-2">
+                                <input name="role" formControlName="role" type="radio" id="huey" value="shelter">
+                                <label for="huey"> ملاجئ</label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="p-2">
+                                <input name="role" formControlName="role" type="radio" id="huey" value="policeStation"
+                                    checked>
+                                <label for="huey">قسم شرطه</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="p-2">
+                                <input name="role" formControlName="role" type="radio" id="huey" value="superAdmin">
+                                <label for="huey"> ادمن</label>
+                            </div>
+                        </div>
+                      
+                        <div *ngIf="changeRole.controls.role.errors && changeRole.controls.role.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاء ادخال الجنس</p>
+                        </div>
+                    </div>
+
+                </div>
+                <ng-template #noPoliceModel>
+                    <div class="row w-100 h-100 text-center justify-content-center align-items-center">
+                        can not find any shelter
+                    </div>
+                </ng-template>
+                <div class="modal-footer">
+                    <button type="submit" [disabled]="changeRole.invalid" class="btn detailsbtnSmall"><i class="fas fa-edit"></i> تحديث</button>
+                    <button type="button" class="btn delBtn" (click)="deletePoliceStation()"><i class="fa fa-trash" aria-hidden="true"></i> حذف</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 

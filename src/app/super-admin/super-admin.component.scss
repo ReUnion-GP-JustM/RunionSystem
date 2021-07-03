@@ -7,17 +7,30 @@ $mainColor:#335861;
 $whiteColoer:#fff;
 /*Start right Part*/
 .rightPart{
-    width: 23%;
+    width:30%;
     position: fixed;
     top: 0;
-    right:-100%;
+    right:-150%;
     bottom: 0;
-    float: right;
     background-color: $mainColor;
     padding:30px 5px;
     overflow:auto ;
+    z-index: 5555555;
 }
+.rightPart::-webkit-scrollbar {
+    display: none;
+}
+.ll{
+    width: 70%;
+    position: fixed;
+    // filter: blur(8px);
+    background-color:rgba($color: #fff, $alpha: 0.7);
+    top: 0;
+    left:-100%;
+    bottom: 0;
+    z-index: 5555555;
 
+}
 .option{
     text-align: right;
     padding: 3px 10px;
@@ -25,6 +38,7 @@ $whiteColoer:#fff;
     border-radius: 25px;
     margin-top: 30px;
     cursor: pointer;
+    // z-index: 66666666666666666;
 }
 .optionHeader{
     color:$mainColor;
@@ -64,7 +78,7 @@ $whiteColoer:#fff;
 .leftPart{
     width: 100%;
     float: left;
-   // height: 100vh;
+//    height: 100vh !important;
     padding: 5px;
  //   position: fixed;
 
@@ -72,15 +86,15 @@ $whiteColoer:#fff;
 .toggleRightPart{
     position: fixed;
     right:2%;
-    top: 0%;
+    top: 0;
     text-align: right;
     cursor: pointer;
-    padding: 2px 10px;
+    padding: 1px 10px;
     margin: 5px 10px;
     border-radius: 5px;
     background-color: $mainColor;
     color: $whiteColoer;
-    z-index: 22222;
+    z-index: 66666666666;
 }
 #close{
     display: none;
@@ -88,44 +102,237 @@ $whiteColoer:#fff;
 
 @media (min-width: 10001px) and (max-width:1350px){
     .rightPart{
-        width: 25%;
+        width:40%;
     }
-    .leftPart{
-        padding: 15px;}
+    .ll{
+        width: 60%;
+    }
+    // .leftPart{
+    //     padding: 15px;}
    
-    .optionTitle h3 {
-    font-size:20px;
-     }
-     .optionBodyItem h4 {
-         font-size: 18px;
-     }
+    // .optionTitle h3 {
+    // font-size:20px;
+    //  }
+    //  .optionBodyItem h4 {
+    //      font-size: 18px;
+    //  }
 }
 
 @media (max-width:1000px){
     .rightPart{
-        width:38%;
+        width:45%;
     }
-    .optionTitle h3 {
-    font-size:18px;
-     }
-     .optionBodyItem h4 {
-         font-size: 14px;
-     }
+    .ll{
+        width: 55%;
+    }
+    // .optionTitle h3 {
+    // font-size:18px;
+    //  }
+    //  .optionBodyItem h4 {
+    //      font-size: 14px;
+    //  }
 }
 
 
 @media  (max-width:600px){
     .rightPart{
-        width:40%;
+        width:55%;
     }
-    .leftPart{
-       padding: 0px;
+    .ll{
+        width:45%;
     }
+    // .leftPart{
+    //    padding: 0px;
+    // }
    
+    // .optionTitle h3 {
+    // font-size:16px;
+    //  }
+    //  .optionBodyItem h4 {
+    //      font-size:12px;
+    //  }
+}
+
+@media (max-width: 500px){
     .optionTitle h3 {
     font-size:16px;
      }
      .optionBodyItem h4 {
          font-size:12px;
      }
+    }
+
+
+    $mainColor:#335861;
+$whiteColoer:#fff;
+.prof img{
+    padding: 10px;
+   border-radius: 50%;
+   width: 120px;
+   height: 120px;
+}
+.select_overLay{
+    position: absolute;
+    top:-100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   border-radius: 12px;
+   border: 1px solid $mainColor;
+   background-color: $mainColor;
+   color: $whiteColoer;
+   transition:all 0.8s;
+
+}
+.optionBodyItemh4 h4{
+    text-decoration: none;
+    color: $mainColor;
+    text-align: center;
+    font-size: 20px;
+}
+.optionBodyItemh4{
+    text-align: right;
+    padding: 5px 0px;
+    background-color: $whiteColoer;
+    border-radius: 20px;
+}
+.select{
+    position: relative;
+    height: 300px;
+    color: $mainColor;
+    border: 1px solid $mainColor;
+    cursor: pointer;
+    transition:all 0.5s;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.select:hover{
+    .select_overLay{
+        top:0;
+    }
+    background-color: $whiteColoer;
+    color: $mainColor;
+    border: 0px solid $mainColor;
+
+ }
+
+
+
+
+ .myform::-webkit-scrollbar {
+    display: none;
+  }
+  .overLay{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    z-index: 5555555555555555;
+}
+.modal-dialog {
+    max-width: 500px !important;
+    border: 0px solid transparent;
+}
+  /* Hide scrollbar for IE, Edge and Firefox */
+.mySearchForm{
+    border-radius: 20px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    background-color: #fff;
+    border-top: 5px solid red;
+    box-shadow: 0px 2px 2px 2px #ddd;
+    width: 90%;
+}
+.profImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    // box-shadow: 0px 2px 2px 2px #ddd;
+}
+
+.fa-check{
+color: seagreen;
+}
+.card-img-top{
+    min-width: 300px;
+    max-height: 400px;
+}
+
+.form-group{
+    position: relative;
+   
+    //background-color: red;
+}
+.form-control , .form-select {
+    text-align: right;
+    border-radius: 25px;
+ 
+}
+.form-group i{
+    position:absolute;
+    top: 10px;
+    left: 10px;
+}
+.form-control:focus{
+    outline: none;
+    // opacity: 0;
+}
+
+.select h3{
+    color: $whiteColoer;
+    display: none;
+}
+.img1{
+    background-image: url("../../assets/imgs/istockphoto-1293207214-170667a.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.img2{
+    background-image: url("../../assets/imgs/missing-person-icon-isolated-sign-260nw-1494875594.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.img3{
+    background-image: url("../../assets/imgs/police-station-police-related-solid-icon-vector-22937342.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.img4{
+    background-image: url("../../assets/imgs/74-744860_clipart-home-shelter-social-service-icon-png.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.img5{
+    background-image: url("../../assets/imgs/setting-icon-or-logo-isolated-sign-symbol-vector-36396654.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.img4 h3 , .img1 h3{
+    color: $mainColor !important;
+    display: none;
+}
+.updateInfo input{
+  text-align: left ;
+}
+
+.updateInfo i{
+    position: absolute;
+    top: 10px;
+    right: 10px !important;
+}
+.updateInfo  .form-control , .updateInfo  .form-select {
+    text-align: left !important;
+    border-radius: 25px;
+ 
+}
+.updateInfo  .form-select  .sbu{
+    text-align: right !important;
+}
+.updateInfo .con2 {
+    text-align: center !important;
+}
+agm-map{
+    height: 400px;
 }

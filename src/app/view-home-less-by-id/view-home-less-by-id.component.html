@@ -1,0 +1,126 @@
+<div class="overLay" *ngIf="load">
+    <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+        <i class="fa fa-spinner fa-5x fa-spin"></i>
+    </div>
+</div>
+
+<div class="displayReport my-1">
+    <div class="container   p-3  noContainer">
+
+        <!---Satrt fullpage row secction-->
+        <div class="bigView">
+            <div  class="row myrow w-75 py-5 px-5 my-4  align-items-center">
+              
+
+
+                <div class="col-md-3">
+                    <img class="reportPic" src="http://localhost:3000/{{homelessList.imageURl}}">
+                </div>
+                <div class="col-md-9">
+                    <div dir="rtl" class="roportInfo">
+                        <h5>الاسم : {{homelessList.name}} </h5>
+                        <h5>العمر : {{homelessList.age}} </h5>
+                        <h5>الجنس :{{homelessList.gender}} </h5>
+                        <h5>القسم التابع له :{{homelessList.policeSationID.userName}} </h5>
+                        <h5>الملاجئ التابع له :{{homelessList.shelterID.userName}} </h5>
+                        <div *ngIf="homelessList.reportID">
+
+                            <h5> التواصل مع البلاغ رقم :{{homelessList.reportID._id}} </h5>
+                            <h5> اسم المتقدم بالبلاغ :{{homelessList.reportID.reporterName}} </h5>
+                        </div>
+                        <button class="btn detailsbtn m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            >عرض التفاصيل</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!---end fullpage row secction-->
+        <!--- start other Vierw report-->
+
+        <div class="smalView" >
+            <div class="row justify-content-center align-items-center ">
+                <div 
+                    class="col-md-6  my-2 text-center p-3">
+                    <div class="text-center">
+                        <div class="card" dir="rtl">
+                            <img src="http://localhost:3000/{{homelessList.imageURl}}" class="card-img-top" alt="...">
+                            <div class="card-body ">
+                                <h5 class="card-title text-center">الاسم : {{homelessList.name}} </h5>
+                                <p>العمر : {{homelessList.age}} </p>
+                                <p>الجنس :{{homelessList.gender}} </p>
+                                <p>القسم التابع له :{{homelessList.policeSationID.userName}} </p>
+                                <p>الملاجئ التابع له :{{homelessList.shelterID.userName}} </p>
+                                <p *ngIf="homelessList.reportID"> التواصل مع البلاغ رقم :{{homelessList.reportID}}
+                                </p>
+                                <p *ngIf="homelessList.reportID"> اسم التقدم بالبلاغ
+                                    :{{homelessList.reportID.reporterName}} </p>
+                                <div class="text-center pt-3">
+                                    <button class="btn detailsbtn2 m-2" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" >عرض
+                                        التفاصيل</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--- end other Vierw report-->
+    </div>
+</div>
+
+<ng-template #noReport>
+    <h3 class="w-100  text-center"> لا يوجد اي مفقودين</h3>
+</ng-template>
+
+
+<!-- Modal -->
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="exampleModalLabel">5555555555:رقم البلاغ</h5>-->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 my-2 mdelImage text-center bigimagView">
+                        <img class="img-fluid " src="http://localhost:3000/{{homelessList.imageURl}}">
+                    </div>
+                    <div class="col-md-8 my-2">
+                        <div dir="rtl" class="modelDiscription">
+                            <div>
+                                <h3 class="text-center modelTit"> بيانات الشخص المفقود</h3>
+                                <div class="mdelImage text-center smallimagView myDivImg">
+                                    <img class="img-fluid " src="http://localhost:3000/{{homelessList.imageURl}}">
+                                </div>
+                                <p class="mt-2"> <span class="infoHead">الاسم : </span>{{homelessList.name}}</p>
+                                <p> <span class="infoHead">العمر : </span> {{homelessList.age}}</p>
+                                <p> <span class="infoHead">الجنس : </span>{{homelessList.gender}}</p>
+                                <p> <span class="infoHead">المحافظه : </span> {{homelessList.foundlocation}}</p>
+                                <p> <span class="infoHead">تاريخ البلاغ : </span>
+                                    {{homelessList.foundTime|date:'dd-MM-yyyy'}}</p>
+                                    <p> <a href="{{homelessList.policeSationID.location}}" target="_blank" class="infoHead">عنوان قسم البوليس </a>
+                                       </p>  
+                                       <p> <a href="{{homelessList.shelterID.location}}" target="_blank" class="infoHead">عنوان الملاجئ  </a>
+                                       </p>  
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer mo ">
+
+                <button type="button" class="btn btn-secondary text-center mo" data-bs-dismiss="modal">اغلاق</button>
+
+            </div>
+        </div>
+    </div>
+</div> 

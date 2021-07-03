@@ -1,161 +1,409 @@
+<div class="overLay" *ngIf="load">
+    <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+        <i class="fa fa-spinner fa-5x fa-spin"></i>
+    </div>
+</div>
+
 <div class="displayReport my-1">
-    <div class="container  noContainer p-3">
-       <!---Satrt fillter secction-->
-  <div class="filtters">
-     <form action="" method="">
-        
-        <div dir="rtl" class="row justify-content-start align-items-center">
-           <div class="col-md-4 my-2">
-            <div class="form-group filter_group">
-                <input class="form-control" type="text" name="name" placeholder="الاسم">
-                <i class="fa fa-user"></i>
-                
-             </div>
-           </div>
-           <div class="col-md-4 my-2">
-              <div class="form-group filter_group">
-                 <input class="form-control"  min="1"  type="number" name="ReportID" placeholder="رقم البلاغ">
-                 <i class="fa fa-id-card" aria-hidden="true"></i>
-              </div>
-           </div>
-           <div class="col-md-4 my-2">
-              <div class="form-group filter_group">
-                 <input class="form-control" type="date" name="Date" placeholder="">
-              </div>
-           </div>
-           <div class="col-md-4 my-2">
-              <div class="form-group filter_group">
-                 <input class="form-control" min="1" type="number" name="age" placeholder="العمر">
-                 <i class="fa fa-child"></i>
-              </div>
-           </div>
-           <div class="col-md-4 my-2">
-              <div class="form-group filter_group">
-                 <select class="form-select text-right" aria-label="Default select example">
-                    <option selected>المحافظه</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                 </select>
-                 <i class=" fa fa-map"></i>
-              </div>
-           </div>
-        </div>
-     </form>
-  </div>
-    <!---end fillter secction-->
-      <!---Satrt fullpage row secction-->
-      <div class="row myrow w-75 py-3 px-2 my-4  align-items-center">     
-        <div class="col-md-3">
-            <img class="reportPic" [src]="imgSrc">
-      </div>
-      <div class="col-md-9">
-           <div class="roportInfo">
-              <h3>الاسم : محممود ماجد </h3>
-              <h3>العمر : 21 </h3>
-              <h3>تاريخ الميلاد  : 13/9/1999 </h3>
-              <h3>الرقم القومي  : 123456789  </h3>
-              <button class="btn btn-danger m-2">حذف البلاغ</button>
-              <button class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"> عرض  التفاصيل</button>
-           </div>
-      </div>
-      </div>
-      <div class="row myrow w-75 py-3 px-2 my-4  align-items-center">     
-        <div class="col-md-3">
-            <img class="reportPic" [src]="imgSrc">
-      </div>
-      <div class="col-md-9">
-           <div class="roportInfo">
-              <h3>الاسم : محممود ماجد </h3>
-              <h3>العمر : 21 </h3>
-              <h3>تاريخ الميلاد  : 13/9/1999 </h3>
-              <h3>الرقم القومي  : 123456789  </h3>
-              <button class="btn btn-danger m-2">حذف البلاغ</button>
-              <button class="btn btn-primary m-2"> عرض  التفاصيل</button>
-           </div>
-      </div>
-      </div>
-   <!---end fullpage row secction-->
-  <!--- start other Vierw report-->
-  
-  
-     <div class="containRoport_SmallView my-4">
-        
-           <div class="smallReport_pic m-auto text-center">
-              <img class="" [src]="imgSrc">
-           </div>
-           <div class="text-center w-100 smallRepotInfo  color-dark">
-              <h3>الاسم : محممود ماجد </h3>
-              <h3>العمر : 21 </h3>
-              <h3>تاريخ الميلاد  : 13/9/1999 </h3>
-              <h3>الرقم القومي  : 123456789  </h3>
-              <button class="btn btn-danger m-2">حذف البلاغ</button>
-              <button class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"> عرض  التفاصيل</button>
-           </div>
-     </div>
-  
-     <div class="containRoport_SmallView my-4">
-  
-        <div class="smallReport_pic m-auto text-center">
-           <img class="" [src]="imgSrc">
-        </div>
-        <div class="text-center w-100 smallRepotInfo  color-dark">
-           <h3>الاسم : محممود ماجد </h3>
-           <h3>العمر : 21 </h3>
-           <h3>تاريخ الميلاد  : 13/9/1999 </h3>
-           <h3>الرقم القومي  : 123456789  </h3>
-           <button class="btn btn-danger m-2">حذف البلاغ</button>
-           <button class="btn btn-primary m-2"> عرض  التفاصيل</button>
-        </div>
-     </div>
-   </div>
-  </div>
-  <!--- end other Vierw report-->
-  
-  
-   
-   <!-- Modal -->
-   <div  class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog">
-       <div class="modal-content">
-         <div class="modal-header">
-          <!-- <h5 class="modal-title" id="exampleModalLabel">5555555555:رقم البلاغ</h5>--> 
-           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <div class="modal-body">
-            <div class="row">
-              <div class="col-md-4 my-2">
-                  <img class="img-fluid " [src]="imgSrc">
-              </div>
-              <div class="col-md-8 my-2">
-                 <div dir="rtl" class="modelDiscription">
-                    <div>
-                       <h3 class="text-center"> بيات الشخص المفقود</h3>
-                       <p> الاسم: محمود ماجد محمد</p>
-                       <p> العمر: محمود ماجد محمد</p>
-                       <p> تاريخ الميلاد: محمود ماجد محمد</p>
-                       <p> المحافطه: محمود ماجد محمد</p>
-                       <p> تاريخ البلاغ ووقت البلاغ: محمود ماجد محمد</p>
-                       <p> الرقم القومي: محمود ماجد محمد</p>
+    <div class="container   p-3  noContainer">
+        <!---Satrt fillter secction-->
+        <div class="filtters">
+            <div dir="rtl" class="row justify-content-start align-items-center">
+                <div class="col-md-4 my-2">
+                    <label for=""> الاسم</label>
+                    <div class="form-group filter_group">
+                        <input [(ngModel)]="filterName" class="form-control" type="text" name="name"
+                            placeholder="الاسم">
+                        <i class="fa fa-user"></i>
                     </div>
-                    <div>
-                       <h3 class="text-center"> بيات المتقدم بلبلاغ</h3>
-                       <p> الاسم: محمود ماجد محمد</p>
-                       <p> الرقم القومي: محمود ماجد محمد</p>
-                       <p>   البريد الالكتروني: محمود ماجد محمد</p>
-                       <p>   رقم الهاتف: محمود ماجد محمد</p>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label for=""> رقم البلاغ</label>
+                    <div class="form-group filter_group">
+                        <input [(ngModel)]="fReportID" class="form-control" min="1" type="text" name="ReportID"
+                            placeholder="رقم البلاغ">
+                        <i class="fa fa-id-card" aria-hidden="true"></i>
                     </div>
-                    
-                 </div>
-             </div>
+                </div>
+                <!-- <div class="col-md-4 my-2">
+                    <label for=""> رقم البلاغ</label>
+
+                    <div class="form-group filter_group">
+                        <input class="form-control" type="date" name="Date" placeholder="">
+                    </div>
+                </div> -->
+                <div class="col-md-4 my-2">
+                    <label for=""> العمر </label>
+
+                    <div class="form-group filter_group">
+                        <input class="form-control" min="1" type="number" name="age" placeholder="العمر"
+                            [(ngModel)]="filterAge">
+                        <i class="fa fa-child"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 y-2">
+                    <label for=""> المحافظه</label>
+
+                    <div class="form-group filter_group">
+                        <select [(ngModel)]="fCity" class="form-select text-right">
+                            <option selected=true> all</option>
+                            <option *ngFor="let _egyptCity of egyptCity">
+                                {{_egyptCity.governorate_name_ar}}
+                        </select>
+                        <i class=" fa fa-map"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 y-2">
+                    <label for=""> قسم البوليس</label>
+
+                    <div class="form-group filter_group">
+                        <select [(ngModel)]="fPolice" class="form-select text-right"
+                            aria-label="Default select example">
+                            <option selected> all</option>
+                            <option *ngFor="let _policeStationLists of policeStationLists">
+                                {{_policeStationLists.userName}}</option>
+                        </select>
+                        <i class="fa fa-house-user"></i>
+                    </div>
+                </div>
             </div>
-          
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-           <button type="button" class="btn btn-danger">حذف البلاغ</button>
-           <button type="button" class="btn btn-primary"> ايداع الي الارشيف</button>
-         </div>
-       </div>
-     </div>
-   </div>
+        </div>
+        <!---end fillter secction-->
+        <!---Satrt fullpage row secction-->
+        <div class="bigView"
+            *ngFor="let _reportContainer of reportContainer |reportSearch:filterName:filterAge:fReportID:fCity:fPolice ; let i = index">
+            <div *ngIf="_reportContainer.status =='closed'" class="row myrow w-75 py-5 px-5 my-4  align-items-center">
+                <div *ngIf="_reportContainer.status =='closed'" style="background-color: tomato;" class="flag"> closed
+                </div>
+
+
+                <div class="col-md-3">
+                    <img class="reportPic" src="http://localhost:3000/{{_reportContainer.imageURl}}">
+                </div>
+                <div class="col-md-9">
+                    <div dir="rtl" class="roportInfo">
+                        <h5>الاسم : {{_reportContainer.name}} </h5>
+                        <h5>العمر : {{_reportContainer.age}} </h5>
+                        <h5>الجنس :{{_reportContainer.gender}} </h5>
+                        <h5>القسم التابع له :{{_reportContainer.policeStationID.userName}} </h5>
+
+                        <button class="btn detailsbtn m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            (click)="getReportInfo(i)">عرض التفاصيل</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!---end fullpage row secction-->
+        <!--- start other Vierw report-->
+
+        <div class="smalView" *ngIf="reportContainer.length >0 ; else noReport">
+            <div class="row justify-content-center align-items-center ">
+                <div *ngFor="let _reportContainer of filterdContainer ; let i = index"
+                    class="col-md-6  my-2 text-center p-3">
+                    <div class="text-center">
+                        <div class="card" dir="rtl">
+                            <div *ngIf="_reportContainer.status =='closed'" style="background-color: tomato;"
+                                class="flag"> closed</div>
+
+                            <img src="http://localhost:3000/{{_reportContainer.imageURl}}" class="card-img-top"
+                                alt="...">
+                            <div class="card-body ">
+                                <h5 class="card-title text-center">الاسم : {{_reportContainer.name}} </h5>
+                                <p>العمر : {{_reportContainer.age}} </p>
+                                <p>الجنس :{{_reportContainer.gender}} </p>
+                                <p>القسم التابع له :{{_reportContainer.policeStationID.userName}} </p>
+                                <div class="text-center pt-3">
+                                    <button class="btn detailsbtn2 m-2" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" (click)="getReportInfo(i)">عرض التفاصيل</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--- end other Vierw report-->
+    </div>
+</div>
+
+<ng-template #noReport>
+    <h3 class="w-100  text-center"> لا يوجد اي بلاغات</h3>
+</ng-template>
+
+
+<!-- Modal -->
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="exampleModalLabel">5555555555:رقم البلاغ</h5>-->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="reportRecord.length>0" class="row">
+                    <div class="col-md-4 my-2 mdelImage text-center bigimagView">
+                        <img class="img-fluid " src="http://localhost:3000/{{reportRecord[0].imageURl}}">
+                    </div>
+                    <div class="col-md-8 my-2">
+                        <div dir="rtl" class="modelDiscription">
+                            <div>
+                                <h3 class="text-center modelTit"> بيانات الشخص المفقود</h3>
+                                <div class="mdelImage text-center smallimagView myDivImg">
+                                    <img class="img-fluid " src="http://localhost:3000/{{reportRecord[0].imageURl}}">
+                                </div>
+                                <p class="mt-2"> <span class="infoHead">الاسم : </span>{{reportRecord[0].name}}</p>
+                                <p> <span class="infoHead">العمر : </span> {{reportRecord[0].age}}</p>
+                                <p> <span class="infoHead">الجنس : </span>{{reportRecord[0].gender}}</p>
+                                <p> <span class="infoHead">المحافظه : </span> {{reportRecord[0].lostLocation}}</p>
+                                <p> <span class="infoHead">تاريخ البلاغ : </span>
+                                    {{reportRecord[0].lostTime|date:'dd-MM-yyyy'}}</p>
+                            </div>
+                            <div>
+                                <h3 class="text-center modelTit"> بيانات المتقدم بالبلاغ</h3>
+                                <p> <span class="infoHead">الاسم : </span> {{reportRecord[0].reporterName}}</p>
+                                <p><span class="infoHead">الرقم القومي : </span> {{reportRecord[0].reporterNationID}}
+                                </p>
+                                <p> <span class="infoHead">رقم الهاتف : </span>{{"0"+reportRecord[0].reporterPhone}}</p>
+                                <p> <span class="infoHead">البريد الالكتروني : </span> {{reportRecord[0].reporterEmail}}
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer modal-footerr ">
+                <button type="button" class="btn detailsbtnSmall" (click)="activate(reportRecord[0]._id)"><i
+                        class="fas fa-check"></i> تفعيل البلاغ </button>
+                <button type="button" class="btn secondary" data-bs-toggle="modal" data-bs-target="#editModel"
+                    (click)="getReportData()"><i class="fas fa-edit"></i> تعديل البيانات </button>
+
+            </div>
+            <div class="modal-footer mobile">
+                <button type="button" class="btn  secondary" data-bs-toggle="modal" data-bs-target="#editModel"
+                    (click)="getReportData()"> تعديل البيانات<i class="fas fa-edit"></i></button>
+                <button type="button" class="btn detailsbtnSmall" (click)="activate(reportRecord[0]._id)"><i
+                        class="fas fa-check"></i> تفعيل البلاغ </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- editReport -->
+<!-- Modal -->
+<div class="modal fade mm" id="editModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div *ngIf='load2' class="mo_OverLay">
+        <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+            <i class="fa fa-spinner fa-5x fa-spin"></i>
+        </div>
+    </div>
+    <div class="modal-dialog my-2">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div *ngIf="reportRecord.length > 0" class="px-3">
+                <form enctype="multipart/form-data" [formGroup]="addMissing" class="myform mb-2 "
+                    (ngSubmit)="addMissing.valid && handelEditReport(reportRecord[0]._id)">
+                    <div class="modal-body">
+
+                        <div class="row p-2 w-100" dir="rtl">
+                            <div class="col-md-12 text-center  my-2">
+                                <h3>بيانات الشخص المفقود</h3>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="name"
+                                        [class.is-valid]="addMissing.controls.name.status == 'VALID' "
+                                        class="form-control" type="text" placeholder="الاسم">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div *ngIf="addMissing.controls.name.errors && addMissing.controls.name.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال اسم مستخدم صحيح</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="age"
+                                        [class.is-valid]="addMissing.controls.age.status == 'VALID' "
+                                        class="form-control" min="1" type="number" placeholder="العمر">
+                                    <i class="fa fa-child"></i>
+
+                                </div>
+                                <div *ngIf="addMissing.controls.age.errors && addMissing.controls.age.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال العمر</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <select formControlName="city" class="form-select"
+                                        aria-label="Default select example">
+                                        <option *ngFor="let _egyptCity of egyptCity">
+                                            {{_egyptCity.governorate_name_ar}}</option>
+                                    </select>
+                                    <i class=" fa fa-map"></i>
+                                </div>
+                                <div *ngIf="addMissing.controls.city.errors && addMissing.controls.city.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال اسم المحافظه</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <select formControlName="stationName" class="form-select">
+                                        <option *ngFor="let _policeStationLists of policeStationLists">
+                                            {{_policeStationLists.userName}}</option>
+                                    </select>
+                                    <i class="fa fa-house-user"></i>
+                                </div>
+                                <div *ngIf="addMissing.controls.stationName.errors && addMissing.controls.stationName.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء اختيار قسم البوليس</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <input name="image" [class.is-valid]="addMissing.controls.image.status == 'VALID' "
+                                        formControlName="image" type="file" class="form-control"
+                                        (change)="selectImage($event)">
+
+                                </div>
+                                <div *ngIf="addMissing.controls.image.errors && addMissing.controls.image.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاءادراج صوره صحيحه</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="p-2">
+                                            النوع :
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="p-2">
+                                            <input name="gender" formControlName="gender" type="radio" id="huey"
+                                                value="male" checked>
+                                            <label for="huey">ذكر</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="p-2">
+                                            <input type="radio" id="dewey" formControlName="gender" name="gender"
+                                                value="female">
+                                            <label for="dewey">انثي</label>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="addMissing.controls.gender.errors && addMissing.controls.image.touched"
+                                        class="form-group alert alert-danger my-2">
+                                        <p> برجاءادراج صوره صحيحه</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <input [class.is-valid]="addMissing.controls.foundTime.status == 'VALID' "
+                                        formControlName="foundTime" type="date" class="form-control">
+
+                                </div>
+                                <div *ngIf="addMissing.controls.foundTime.errors && addMissing.controls.foundTime.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاءادخال التاريخ والوقت صحيح </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <textarea [class.is-valid]="addMissing.controls.description.status == 'VALID' "
+                                        formControlName="description" class="form-control" placeholder="وصف عام"
+                                        id="floatingTextarea2" style="height:25px">
+                        </textarea>
+                                </div>
+                                <div *ngIf="addMissing.controls.description.errors && addMissing.controls.description.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال الوصف</p>
+                                </div>
+                            </div>
+                            <div class="col-12 my-2">
+                                <div class="p-2">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center  my-2">
+                                <h3>بيانات المبلغ</h3>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="finderName"
+                                        [class.is-valid]="addMissing.controls.finderName.status == 'VALID' "
+                                        class="form-control" type="text" placeholder="الاسم">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div *ngIf="addMissing.controls.finderName.errors && addMissing.controls.finderName.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال اسم مستخدم صحيح</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="nationID"
+                                        [class.is-valid]="addMissing.controls.nationID.status == 'VALID' "
+                                        class="form-control" min="1" type="number" placeholder="الرقم القومي">
+                                    <i class="fa fa-id-card"></i>
+                                </div>
+                                <div *ngIf="addMissing.controls.nationID.errors && addMissing.controls.nationID.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال رقم القومي الصحيح</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <input dir="ltr" formControlName="phoneNumber"
+                                        [class.is-valid]="addMissing.controls.phoneNumber.status == 'VALID' "
+                                        class="form-control" type="text" placeholder="رقم الهاتف">
+                                    <i class="fa fa-mobile"></i>
+                                </div>
+                                <div *ngIf="addMissing.controls.phoneNumber.errors && addMissing.controls.phoneNumber.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال رقم الهاتف الصحيح</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="form-group my-2">
+                                    <input formControlName="finderEmail"
+                                        [class.is-valid]="addMissing.controls.finderEmail.status == 'VALID' "
+                                        class="form-control" type="email" placeholder="البريد الالكتروني">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div *ngIf="addMissing.controls.finderEmail.errors && addMissing.controls.finderEmail.touched"
+                                    class="form-group alert alert-danger my-2">
+                                    <p> برجاء ادخال بريد الالكتروني صحيح</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12 my-2">
+                                <div class="form-group my-2 text-center">
+                                    <button [disabled]="addMissing.invalid"
+                                        class=" btn btn-danger w-100 form-control text-center">
+                                        تحديث</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

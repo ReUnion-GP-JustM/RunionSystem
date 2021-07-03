@@ -1,0 +1,169 @@
+<section class="w-100  py-5">
+    <section class="searchSection py-5 my-2">
+        <div id="search" class="w-100  d-flex justify-content-center align-items-center ">
+
+            <form *ngIf="searchForm" [formGroup]="searchReport" class="mySearchForm mb-2"
+                (ngSubmit)="searchReport.valid && hadelSearchRport()">
+                <div class="row p-2" dir="rtl">
+                    <div class="col-md-12 text-center  my-2">
+                        <h3>بيانات المفقود</h3>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <div class="form-group my-2">
+                            <input formControlName="name"
+                                [class.is-valid]="searchReport.controls.name.status == 'VALID' " class="form-control"
+                                type="text" placeholder="الاسم">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div *ngIf="searchReport.controls.name.errors && searchReport.controls.name.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاء ادخال اسم مستخدم صحيح</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <div class="form-group my-2">
+                            <input formControlName="age" [class.is-valid]="searchReport.controls.age.status == 'VALID' "
+                                class="form-control" min="1" type="number" placeholder="العمر">
+                            <i class="fa fa-child"></i>
+
+                        </div>
+                        <div *ngIf="searchReport.controls.age.errors && searchReport.controls.age.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاء ادخال اسم مستخدم صحيح</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <div class="form-group my-2">
+                            <input name="image" [class.is-valid]="searchReport.controls.image.status == 'VALID' "
+                                formControlName="image" type="file" class="form-control" (change)="selectImage($event)">
+
+                        </div>
+                        <div *ngIf="searchReport.controls.image.errors && searchReport.controls.image.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاءادراج صوره صحيحه</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="p-2">
+                                    النوع :
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2">
+                                    <input name="gender" formControlName="gender" type="radio" id="huey" value="male"
+                                        checked>
+                                    <label for="huey">ذكر</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2">
+                                    <input type="radio" id="dewey" formControlName="gender" name="gender"
+                                        value="female">
+                                    <label for="dewey">انثي</label>
+                                </div>
+                            </div>
+                            <div *ngIf="searchReport.controls.gender.errors && searchReport.controls.image.touched"
+                                class="form-group alert alert-danger my-2">
+                                <p> برجاء ادخال الجنس</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 my-2">
+                        <div class="form-group my-2 text-center">
+                            <button [disabled]="searchReport.invalid"
+                                class=" btn btn-danger w-100 form-control text-center">
+                                بحث</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+   <!-- updatePassword -->
+    <section class="searchSection py-5 my-2">
+        <div id="search" class="w-100  d-flex justify-content-center align-items-center ">
+
+            <form *ngIf="searchForm" [formGroup]="searchReport" class="mySearchForm mb-2"
+                (ngSubmit)="searchReport.valid && hadelSearchRport()">
+                <div class="row p-2" dir="rtl">
+                    <div class="col-md-12 text-center  my-2">
+                        <h3>بيانات المفقود</h3>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <div class="form-group my-2">
+                            <input formControlName="name"
+                                [class.is-valid]="searchReport.controls.name.status == 'VALID' " class="form-control"
+                                type="text" placeholder="الاسم">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div *ngIf="searchReport.controls.name.errors && searchReport.controls.name.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاء ادخال اسم مستخدم صحيح</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <div class="form-group my-2">
+                            <input formControlName="age" [class.is-valid]="searchReport.controls.age.status == 'VALID' "
+                                class="form-control" min="1" type="number" placeholder="العمر">
+                            <i class="fa fa-child"></i>
+
+                        </div>
+                        <div *ngIf="searchReport.controls.age.errors && searchReport.controls.age.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاء ادخال اسم مستخدم صحيح</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <div class="form-group my-2">
+                            <input name="image" [class.is-valid]="searchReport.controls.image.status == 'VALID' "
+                                formControlName="image" type="file" class="form-control" (change)="selectImage($event)">
+
+                        </div>
+                        <div *ngIf="searchReport.controls.image.errors && searchReport.controls.image.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاءادراج صوره صحيحه</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="p-2">
+                                    النوع :
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2">
+                                    <input name="gender" formControlName="gender" type="radio" id="huey" value="male"
+                                        checked>
+                                    <label for="huey">ذكر</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2">
+                                    <input type="radio" id="dewey" formControlName="gender" name="gender"
+                                        value="female">
+                                    <label for="dewey">انثي</label>
+                                </div>
+                            </div>
+                            <div *ngIf="searchReport.controls.gender.errors && searchReport.controls.image.touched"
+                                class="form-group alert alert-danger my-2">
+                                <p> برجاء ادخال الجنس</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 my-2">
+                        <div class="form-group my-2 text-center">
+                            <button [disabled]="searchReport.invalid"
+                                class=" btn btn-danger w-100 form-control text-center">
+                                بحث</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</section>

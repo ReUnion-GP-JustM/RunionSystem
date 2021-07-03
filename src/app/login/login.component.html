@@ -1,0 +1,235 @@
+<!-- 
+     1- [formGroup]="loginForm"
+     2- (ngSubmit)="loginForm.valid && hadelSearchRport()" 
+     3- [class.is-valid]="loginForm.controls.email.status == 'VALID' " 
+     4- *ngIf="loginForm.controls.email.errors && loginForm.controls.emai.touched" 
+-->
+
+<section>
+    <div class="d-flex align-items-center justify-content-center login py-5">
+        <div class="firstForm">
+
+            <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && handelSignIn()">
+
+                <div class="logwall d-flex align-items-end justify-content-center ">
+                    <div class="nameinowall">
+                        <div class="circleIconDiv">
+                            <div class="circleIcon d-flex">
+                                <i class="far fa-user m-auto"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                           
+                            <div class="col-2 pe-0">
+                                <div class="iconDiv d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="col-10 ps-0">
+                                <input class="nameino" placeholder="Email" type="text"
+                                    [class.is-valid]="loginForm.controls.email.status == 'VALID' "
+                                    formControlName="email">
+                            </div>
+                            <div *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched"
+                                class="text-center text-danger">
+                                <p>In-valid Email</p>
+                            </div>
+                            <div class="col-2 pe-0">
+                                <div class="iconDiv d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                            </div>
+                            <div class="col-10 ps-0">
+                                <input class="nameino" placeholder="Password" type="password"
+                                    [class.is-valid]="loginForm.controls.password.status == 'VALID' "
+                                    formControlName="password">
+                            </div>
+                            <div *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched"
+                                class="text-center text-danger">
+                                <p>In-valid Pasword</p>
+                            </div>
+                            <div *ngIf="loginError" class="text-center text-danger">
+                                <p>{{loginErrorMessage}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mt-5">
+                            </div>
+                            <div class="col-6 mt-5 d-flex">
+                                <a (click)="setForgetForm()" class="loginLink FFLink ms-auto">Forgort password?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loginbtn d-flex align-items-end justify-content-center ">
+                    <button [disabled]="loginForm.invalid">Login</button>
+                </div>
+            </form>
+            <a routerLink="/signUp" class="logLink d-flex align-items-end justify-content-center">
+                <span class="text-center">Don't have an account?</span>
+            </a>
+        </div>
+        <div class="secondForm">
+            <form [formGroup]="forgetPasswordForm" (ngSubmit)="forgetPasswordForm.valid && handelForgetPassword()">
+                <div class="logwall d-flex align-items-end justify-content-center ">
+
+                    <div class="nameinowall">
+                        <div class="circleIconDiv">
+                            <div class="circleIcon d-flex">
+                                <i class="far fa-user m-auto"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 pe-0">
+                                <div class="iconDiv d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="col-10 ps-0">
+                                <input class="nameino" placeholder="Email" type="text"
+                                    [class.is-valid]="forgetPasswordForm.controls.email.status == 'VALID' "
+                                    formControlName="email">
+                            </div>
+                            <div class="col-12 text-center">
+                                <p style="color: #031f45;">Please enter the email associated with your account</p>
+                            </div>
+                            <div *ngIf="forgetPasswordForm.controls.email.errors && forgetPasswordForm.controls.email.touched"
+                                class="text-center text-danger">
+                                <p>In-valid Email</p>
+                            </div>
+                            <div *ngIf="loginError" class="text-center text-danger">
+                                <p>{{loginErrorMessage}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mt-5">
+                            </div>
+                            <div class="col-6 mt-5 d-flex">
+                                <a (click)="backLogin()" class="loginLink ms-auto">Back to login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loginbtn d-flex align-items-end justify-content-center ">
+                    <button [disabled]="forgetPasswordForm.invalid" class="submitEmali">Submit</button>
+                </div>
+            </form>
+            <a routerLink="/signUp" class="logLink d-flex align-items-end justify-content-center">
+                <span class="text-center">Don't have an account?</span>
+            </a>
+        </div>
+        <div class="thirdForm">
+            <form [formGroup]="checkCodeForm" (ngSubmit)="checkCodeForm.valid && handelCheckCode()">
+                <div class="logwall d-flex align-items-end justify-content-center ">
+
+                    <div class="nameinowall">
+                        <div class="circleIconDiv">
+                            <div class="circleIcon d-flex">
+                                <i class="far fa-user m-auto"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                          
+                            <div class="col-2 pe-0">
+                                <div class="iconDiv d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-keyboard"></i>
+                                </div>
+                            </div>
+                            <div class="col-10 ps-0">
+                                <input class="nameino" placeholder="Enter-Code" type="text"
+                                    [class.is-valid]="checkCodeForm.controls.code.status == 'VALID' "
+                                    formControlName="code">
+                            </div>
+                            <div class="col-12 text-center">
+                                <p style="color: #031f45;">Please enter the code</p>
+                            </div>
+                            <div *ngIf="checkCodeForm.controls.code.errors && checkCodeForm.controls.code.touched"
+                                class="text-center text-danger">
+                                <p>In-valid code</p>
+                            </div>
+                            <div *ngIf="loginError" class="text-center text-danger">
+                                <p>{{loginErrorMessage}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mt-5">
+                            </div>
+                            <div class="col-6 mt-5 d-flex">
+                                <a (click)="handelForgetPassword()" class="loginLink ms-auto">Resend code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loginbtn d-flex align-items-end justify-content-center ">
+                    <button [disabled]="checkCodeForm.invalid" class="submitCode">Submit</button>
+                </div>
+            </form>
+            <a routerLink="/signUp" class="logLink d-flex align-items-end justify-content-center">
+                <span class="text-center">Don't have an account?</span>
+            </a>
+        </div>
+        <div class="forthForm">
+            <form [formGroup]="activateForm" (ngSubmit)="activateForm.valid && activateForgetPasswordForm()">
+                <div class="logwall d-flex align-items-end justify-content-center ">
+                    <div class="nameinowall">
+                        <div class="circleIconDiv">
+                            <div class="circleIcon d-flex">
+                                <i class="far fa-user m-auto"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                        
+                            <div class="col-2 pe-0">
+                                <div class="iconDiv d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                            </div>
+                            <div class="col-10 ps-0">
+                                <input class="nameino" placeholder="Password" type="password"
+                                    [class.is-valid]="activateForm.controls.password.status == 'VALID' "
+                                    formControlName="password">
+                            </div>
+                            <div class="col-2 pe-0">
+                                <div class="iconDiv d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                            </div>
+                            <div *ngIf="activateForm.controls.password.errors && activateForm.controls.password.touched"
+                                class="text-center text-danger">
+                                <p>In-valid password</p>
+                            </div>
+                            <div class="col-10 ps-0">
+                                <input class="nameino" placeholder="Confirm Password" type="password"
+                                    [class.is-valid]="activateForm.controls.cPassword.status == 'VALID' "
+                                    formControlName="cPassword">
+                            </div>
+                            <div class="col-12 text-center">
+                                <p style="color: #031f45;">Please enter new password</p>
+                            </div>
+                            <div *ngIf="activateForm.controls.cPassword.errors && activateForm.controls.cPassword.touched"
+                                class="text-center text-danger">
+                                <p>In-valid confirmation password</p>
+                            </div>
+                            <div *ngIf="loginError" class="text-center text-danger">
+                                <p>{{loginErrorMessage}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mt-5">
+                            </div>
+                            <div class="col-6 mt-5 d-flex">
+                                <a (click)="backLogin()" class="loginLink ms-auto">Back to login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loginbtn d-flex align-items-end justify-content-center ">
+                    <button [disabled]="activateForm.invalid">Submit</button>
+                </div>
+            </form>
+            <a routerLink="/signUp" class="logLink d-flex align-items-end justify-content-center">
+                <span class="text-center">Don't have an account?</span>
+            </a>
+        </div>
+    </div>
+</section>

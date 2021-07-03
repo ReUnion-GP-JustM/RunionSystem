@@ -1,0 +1,57 @@
+$mainColor:#335861;
+$whiteColoer:#fff;
+/*start filter_group*/
+.filter_group{
+   position: relative;
+  
+   //background-color: red;
+}
+.form-control , .form-select {
+   text-align: left;
+   border-radius: 25px;
+}
+.filter_group i{
+   position:absolute;
+   top: 10px;
+   right:10px;
+}
+.modal-body p {
+   margin-top: 5px;
+}
+.modal-body p span{
+  color: $mainColor;
+  font-weight: bold;
+  font-size: 18px;
+}
+.delBtn{
+   background-color: #d9534f ;
+   color: $whiteColoer;
+   transition: all .7s;
+
+}
+.delBtn:hover{
+   background-color: $whiteColoer ;
+   border: 1px solid #d9534f;
+   color: #d9534f;
+}
+
+.detailsbtnSmall{
+   background-color: $mainColor;
+   border:1px solid $whiteColoer;
+   color: $whiteColoer;
+   font-size: 18px;
+   font-weight: bold;
+   transition: all .7s;
+}
+.detailsbtnSmall:hover{
+   border:1px solid $mainColor;
+   background-color: $whiteColoer;
+   color: $mainColor;
+
+}
+
+@media (max-width: 500px){
+   .del{
+      display: none !important;
+   }
+}

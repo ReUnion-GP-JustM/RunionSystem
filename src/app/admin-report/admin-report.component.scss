@@ -1,19 +1,64 @@
 $mainColor:#335861;
 $whiteColoer:#fff;
+.overLay{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    z-index: 88888888888888888888888888888 !important;
+}
 .reportPic{
     border-radius: 50%;
-    box-shadow: 1px 1px 1px 1px #ddd;
+    // box-shadow: 1px 1px 1px 1px #ddd;
     height: 200px;
     width: 200px;
 }
+.myrow{
+    position: relative;
+}
+.flag{
+    position: absolute;
+    right:32% !important;
+    top: 3%;
+    width: 200px !important;
+    text-align: center;
+    color: #fff;
+    border-bottom-right-radius:7px ;
+    border-top-left-radius:7px ;
+  
+  
+
+}
 .displayReport{
     width: 100%;
+    padding: 25px
+}
+
+.card{
+    border: 0;
+   
+
+}
+.card-body{
+    color: $whiteColoer;
+   border: 1px solid rgba(0,0,0,.125);
+    background-color: $mainColor;
+    border-bottom-right-radius:25px !important;
+    border-bottom-left-radius:25px !important;
+
+}
+.card-body p{
+    text-align: right;
+    font-size: 18px;
 }
 .displayReport .myrow{
     width: 100%;
-    border-top-left-radius: 120px;
-    border-bottom-left-radius: 120px;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
     background-color: $mainColor;
+    box-shadow: 0px 3px 3px 3px #ddd;
     margin: auto;
     
 }
@@ -21,7 +66,58 @@ $whiteColoer:#fff;
     text-align: right;
      color: $whiteColoer;
 }
+.detailsbtn {
+    position: absolute;
+    bottom: 0%;
+    right: 35%;
+    background-color: $whiteColoer;
+    border:1px solid $mainColor;
+    color: $mainColor;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all .7s;
+}
+.detailsbtn2{
+    background-color: $whiteColoer;
+    border:1px solid $mainColor;
+    color: $mainColor;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all .7s;
+}
+.detailsbtn:hover , .detailsbtn2:hover{
+    border:1px solid $whiteColoer;
+    background-color: $mainColor;
+    color: $whiteColoer;
+}
+.detailsbtnSmall{
+    background-color: $mainColor;
+    border:1px solid $whiteColoer;
+    color: $whiteColoer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all .7s;
+}
+.detailsbtnSmall:hover{
+    border:1px solid $mainColor;
+    background-color: $whiteColoer;
+    color: $mainColor;
+}
+$secondaryColoer:#b4b4b4;
 
+.secondary{
+    background-color:$secondaryColoer;
+    border:1px solid $secondaryColoer;
+    color: $whiteColoer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all .7s;
+}
+.secondary:hover {
+    border:1px solid $secondaryColoer;
+    background-color: $whiteColoer;
+    color:#787878;
+}
 /*=====================small view =============*/
 .containRoport_SmallView{
     background-color: $mainColor;
@@ -37,6 +133,17 @@ $whiteColoer:#fff;
     border-radius: 50%;
     height: 200px;
     width: 200px;
+}
+.delBtn{
+    background-color: #d9534f ;
+    color: $whiteColoer;
+    transition: all .7s;
+
+}
+.delBtn:hover{
+    background-color: $whiteColoer ;
+    border: 1px solid #d9534f;
+    color: #d9534f;
 }
 /*end*/
 /*start filter_group*/
@@ -54,6 +161,12 @@ $whiteColoer:#fff;
     top: 10px;
     left: 10px;
 }/*end*/
+// .smalImg{
+//     width: 300px ;
+//     height: 300px ;
+//     border-radius: 50% !important;
+
+// }
 /*start model*/
 .modal{
     z-index: 8888888888888888;
@@ -62,39 +175,169 @@ $whiteColoer:#fff;
     max-width: 800px !important;
    
 }
-@media (max-width: 995px){
-    .displayReport .myrow{    
+.smalView{
+    display: none
+}
+@media (max-width: 994px){
+    .bigView {   
         display: none;
     }
-    .containRoport_SmallView{
+    .smalView{
         display: block;
     }
-    .displayReport{
-        padding: 25px;
-    }
     .noContainer{
         padding: 0px !important;
         margin: 0px !important;
+    }
+
+}
+
+.card-img-top{
+    border-top-right-radius:25px !important;
+    border-top-left-radius:25px !important;
+}
+
+.mdelImage img{
+ 
+    border-radius:25px;
+    box-shadow: 7px 7px 7px  rgba(0,0,0,.4);
+
+}
+.smallimagView{
+    display: none ;
+}
+.modelTit{
+    color: $mainColor ;
+    font-size: 25px;
+    font-weight: bold;
+}
+.infoHead{
+    color: $mainColor;
+    font-size: 18px;
+    font-weight: 600;
+}
+@media (min-width: 760px){
+    .card-img-top {
+    height: 400px !important;
+    }
+    .mdelImage{
+        text-align: center;
+    }
+   
+}
+
+
+
+@media (max-width: 780px){
+  .bigimagView{
+      display: none !important;
+      border: 0px !important;
+  }
+  .smallimagView{
+      display: block !important;
+  }
+    .mdelImage img{
+ 
+        border-radius:50%;
+        height: 200px;
+        width: 200px;
+       box-shadow: 5px 5px 5px  rgba(0,0,0,.4);
+
+    }
+    .modelDiscription div{
+        text-align: center !important;
+        border: 2px dashed $mainColor;
+        margin-top: 10px;
+    }
+    .myDivImg{
+        border: 0px !important;
     }
 }
-@media (max-width: 600px){
-    .noContainer{
-        padding: 0px !important;
-        margin: 0px !important;
+.mobile{
+    display: none;
+}
+
+
+
+
+
+.mo_OverLay{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    z-index: 88888888888888888888888888888 !important;
+}
+//form 
+.myform::-webkit-scrollbar {
+    display: none;
+  }
+.myform{
+    border-radius: 20px;
+    -ms-overflow-style: none !important;  /* IE and Edge */
+    scrollbar-width: none !important;  /* Firefox */
+    background-color: #fff;
+    border-top: 5px solid red;
+    box-shadow: 0px 2px 2px 2px #ddd;
+    width: 100%;
+    height:85%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+ 
+}
+.form-group{
+    position: relative;
+   
+    //background-color: red;
+}
+.form-control , .form-select {
+    text-align: right;
+    border-radius: 25px;
+ 
+}
+.form-group i{
+    position:absolute;
+    top: 10px;
+    left: 10px;
+}
+.form-control:focus{
+    outline: none;
+}
+
+@media (max-width:1000px){
+
+    .myform{
+        width: 100%;
     }
-    .smallReport_pic img{
-        margin: 25px;
-        border-radius: 50%;
-        height: 120px;
-        width: 120px;
+}
+//end form
+@media (max-width: 500px){
+    .modal-footerr {
+        display: none !important;
     }
-    .displayReport{
-        padding: 5px;
+    .mobile{
+        display: block;
     }
-    .smallRepotInfo h3{
-        font-size: 18px;
+    .modal-footer .btn {
+        display: flex;
+    flex-wrap: wrap;
+    direction: rtl !important;
+       width: 100% !important;
+       align-items: center;
+    text-align: left;
     }
-    .filtters{
-        margin-top: 50px !important;
+    .modal-footer .btn i{ padding-right: 3px;}
+    .modal-footer .btn{
+        text-align: right !important;
     }
+  
+}
+label{
+    padding-bottom: 4px;
+    color: brown;
+    padding-right: 18px;
+
 }

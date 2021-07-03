@@ -1,0 +1,27 @@
+<nav dir="rtl" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid nav_wd">
+      <button class="navbar-toggler me-auto " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item">
+            <a class="navbarWord1 nav-link active" aria-current="page" [routerLink]="['/home']" routerLinkActive="router-link-active" >الصفحة الرئيسية</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbarWord nav-link" [routerLink]="['/instruction']"  >طريقة الإستخدام</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbarWord nav-link" [routerLink]="['/searchReport']"  >ابدأ البحث</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbarWord nav-link" href="#">التواصل و معلومات</a>
+          </li>
+
+        </ul>
+        <form class="d-flex justify-content-center align-items-center">
+            <a class="navbarWord2 nav-link" [routerLink]="['/home']"  ><img class="" style="width: 115px;" src="../../../assets/imgs/logo.png"></a>       
+         </form>
+      </div>
+    </div>
+  </nav>

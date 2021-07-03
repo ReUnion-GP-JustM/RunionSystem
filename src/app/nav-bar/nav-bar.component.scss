@@ -1,0 +1,46 @@
+.navbarWord , .navbarWord1 {
+    // font-family: 'GE SS Two';
+    font-size: 20px;
+    padding-left: 130PX;
+}
+
+.nav_wd {
+    width: 92%;
+}
+
+
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+    color: #345862;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #F37368;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.2rem;
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #345862 70%, rgba(255,255,255,0) 0%);
+    background-position: bottom;
+    background-size: 13px 1px;
+    background-repeat: repeat-x;}
+
+
+.navbarWord2{
+        color: #345862;
+        font-size: 1rem;
+        width: 200px;
+    }
+
+.smollWord{
+    font-size: 12px;
+    color: #F37368;
+    font-family: 'GE SS Two';
+
+}
+
+.navbar{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+}

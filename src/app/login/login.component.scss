@@ -1,0 +1,134 @@
+.login{
+    height: 91.2vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../assets/imgs/signLoginimg.jpg");
+    padding:60px;
+}
+.logwall{
+    margin-top: 50px;
+    width: 500px;
+    background-color: rgba(255,255,255,0.4);
+    padding: 50px 10px;
+    border-radius: 25px;
+}
+a{
+    cursor: pointer;
+}
+.nameinowall{
+    position: relative;
+    width: 80%;
+    padding-top: 70px;
+}
+.nameino{
+    width: 100%;
+    background-color: #385072; 
+    color: #fff;
+    border: 0px solid white;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    outline-color: transparent !important;
+    outline: none;
+}
+.iconDiv{
+    width: 100%;
+    height: 73%;
+    background-color: #00264d;
+    color: #e2e2e1;
+    font-size: 25px;
+}
+.loginLink{
+    text-decoration: none;
+    color: #00264d;
+}
+.form-check-input{
+    background-color: #031f45;
+    cursor: pointer;
+}
+.circleIconDiv{
+    position: absolute;
+    left: 36%;
+    bottom: 99%;
+}
+.circleIcon{
+    background-color: #00264d;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 100;
+    width: 120px;
+    height: 120px;
+    font-size: 50px;
+}
+.loginbtn button{
+    width: 70%;
+    padding: 10px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: Transparent;
+    background-image: linear-gradient(rgba(255,255,255,0.0), rgba(255,255,255,0.4));
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+.logLink{
+    text-decoration: none;
+}
+.logLink span{
+    width: 50%;
+    padding: 10px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: Transparent;
+    background-image: linear-gradient(rgba(255,255,255,0.0), rgba(255,255,255,0.4));
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    outline: none;
+}
+.secondForm , .thirdForm, .forthForm{
+    display: none;
+}
+@media screen and (max-width: 760px)
+{
+    .logwall{
+        width: 350px;
+    }
+    .circleIconDiv{
+        left: 30%;  
+    }
+    .circleIcon{
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+    }
+    .loginLink{
+        text-decoration: none;
+    }
+    .login{
+        height: 91.6vh;
+    }
+}
+@media screen and (max-width: 340px)
+{
+    .logwall{
+        width: 250px;
+    }
+    .login{
+        height: 105.2vh;
+    }
+    .circleIconDiv{
+        left: 25%;  
+    }
+}
+@media screen and (max-width: 730px)
+{
+}
+@media screen and (max-width: 780px)
+{
+}
+@media screen and (max-width: 414px)
+{
+}

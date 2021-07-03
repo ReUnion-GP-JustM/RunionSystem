@@ -1,0 +1,23 @@
+.div {
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid  #fff;
+    // background-image: linear-gradient(to right, #345862 70%, rgba(255,255,255,0) 0%);
+    // background-position: top;
+    // background-size: 13px 1px;
+    // background-repeat: repeat-x;
+    // font-family: 'GE SS Two';
+    background-color:#345862;
+    // font-size: 20px;
+    text-align: center;
+    color: #fff;
+
+}
