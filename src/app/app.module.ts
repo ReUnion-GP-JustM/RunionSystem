@@ -17,7 +17,6 @@ import { GetAllSheltersComponent } from './get-all-shelters/get-all-shelters.com
 import { ShelterRequestToJoinComponent } from './shelter-request-to-join/shelter-request-to-join.component';
 import { HomlessHistoryComponent } from './homless-history/homless-history.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { SuperAdminDashBoredComponent } from './super-admin-dash-bored/super-admin-dash-bored.component';
 import { MapComponent } from './map/map.component'
 import { AgmCoreModule } from '@agm/core';
 import { LoginComponent } from './login/login.component';
@@ -25,15 +24,15 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ShelterHomeLessComponent } from './shelter-home-less/shelter-home-less.component';
 import { ShelterHomeLessHistoryComponent } from './shelter-home-less-history/shelter-home-less-history.component';
 import { GustReportComponent } from './gust-report/gust-report.component';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { HomeComponent } from './home/home.component';
 import { ReportSearchPipe } from './report-search.pipe';
 import { HomeLessSearchPipe } from './home-less-search.pipe';
 import { UserSearchPipe } from './user-search.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { ViewHomeLessByIDComponent } from './view-home-less-by-id/view-home-less-by-id.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContactUSComponent } from './contact-us/contact-us.component';
+import { InstructionComponent } from './instruction/instruction.component';
 declare var google:any;
 @NgModule({
   declarations: [
@@ -49,22 +48,21 @@ declare var google:any;
     ShelterRequestToJoinComponent,
     HomlessHistoryComponent,
     NavBarComponent,
-    SuperAdminDashBoredComponent,
     MapComponent,
     LoginComponent,
     SignUpComponent,
     ShelterHomeLessComponent,
     ShelterHomeLessHistoryComponent,
     GustReportComponent,
-    UpdateProfileComponent,
     HomeComponent,
     ReportSearchPipe,
     HomeLessSearchPipe,
     UserSearchPipe,
     NotFoundComponent,
-    ConfirmEmailComponent,
     ViewHomeLessByIDComponent,
     FooterComponent,
+    ContactUSComponent,
+    InstructionComponent,
   ],
   imports: [
     BrowserModule,

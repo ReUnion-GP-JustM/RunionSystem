@@ -15,7 +15,10 @@
             <a class="navbarWord nav-link" [routerLink]="['/searchReport']"  >ابدأ البحث</a>
           </li>
           <li class="nav-item">
-            <a class="navbarWord nav-link" href="#">التواصل و معلومات</a>
+            <a class="navbarWord nav-link" routerLink="/contactUS">التواصل و معلومات</a>
+          </li>
+          <li *ngIf="tokenUser" class="nav-item">
+            <a class="navbarWord nav-link" routerLink="/admin">الصفحه الشخصيه</a>
           </li>
 
         </ul>

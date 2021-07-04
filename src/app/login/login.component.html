@@ -7,6 +7,7 @@
 
 <section>
     <div class="d-flex align-items-center justify-content-center login py-5">
+
         <div class="firstForm">
 
             <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && handelSignIn()">
@@ -189,15 +190,17 @@
                                     [class.is-valid]="activateForm.controls.password.status == 'VALID' "
                                     formControlName="password">
                             </div>
+                            <div *ngIf="activateForm.controls.password.errors && activateForm.controls.password.touched"
+                            class="text-center text-danger">
+                            <p>In-valid password</p>
+                        </div> 
+                        
                             <div class="col-2 pe-0">
                                 <div class="iconDiv d-flex align-items-center justify-content-center">
                                     <i class="fas fa-lock"></i>
                                 </div>
                             </div>
-                            <div *ngIf="activateForm.controls.password.errors && activateForm.controls.password.touched"
-                                class="text-center text-danger">
-                                <p>In-valid password</p>
-                            </div>
+                         
                             <div class="col-10 ps-0">
                                 <input class="nameino" placeholder="Confirm Password" type="password"
                                     [class.is-valid]="activateForm.controls.cPassword.status == 'VALID' "

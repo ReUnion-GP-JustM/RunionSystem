@@ -55,7 +55,7 @@
                     <div class="form-group filter_group">
                         <select [(ngModel)]="fCity" class="form-select text-right">
                             <option selected=true> all</option>
-                            <option *ngFor="let _egyptCity of egyptCity">
+                            <option *ngFor="let _egyptCity of egyptCity" >
                                 {{_egyptCity.governorate_name_ar}}</option>
                         </select>
                         <i class=" fa fa-map"></i>
@@ -80,7 +80,7 @@
         <!---Satrt fullpage row secction-->
 
         <div class="bigView"
-            *ngFor="let _reportContainer of reportContainer |reportSearch:filterName:filterAge:fReportID:fCity:fPolice; let i = index">
+            *ngFor="let _reportContainer of reportContainer|reportSearch:filterName:filterAge:fReportID:fCity:fPolice; let i = index">
             <div *ngIf="_reportContainer.status !='closed'" class="row myrow w-75 py-5 px-5 my-4  align-items-center">
                 <div *ngIf="_reportContainer.status =='hold'" style="background-color: tomato;" class="flag"> Hold</div>
                 <div *ngIf="_reportContainer.status =='active'" style="  background-color:green;" class="flag"> Active
@@ -183,7 +183,7 @@
                                 <p> <span class="infoHead">الاسم : </span> {{reportRecord[0].reporterName}}</p>
                                 <p><span class="infoHead">الرقم القومي : </span> {{reportRecord[0].reporterNationID}}
                                 </p>
-                                <p> <span class="infoHead">رقم الهاتف : </span>{{"0"+reportRecord[0].reporterPhone}}</p>
+                                <p> <span class="infoHead">رقم الهاتف : </span>{{reportRecord[0].reporterPhone}}</p>
                                 <p> <span class="infoHead">البريد الالكتروني : </span> {{reportRecord[0].reporterEmail}}
                                 </p>
                             </div>
@@ -270,7 +270,7 @@
                                 <div class="form-group my-2">
                                     <select formControlName="city" class="form-select"
                                         aria-label="Default select example">
-                                        <option *ngFor="let _egyptCity of egyptCity">
+                                        <option *ngFor="let _egyptCity of egyptCity" >
                                             {{_egyptCity.governorate_name_ar}}</option>
                                     </select>
                                     <i class=" fa fa-map"></i>

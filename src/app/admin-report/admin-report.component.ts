@@ -52,6 +52,8 @@ export class AdminReportComponent implements OnInit {
   getreport() {
     this._ReportService.getReport().subscribe(data => {
       this.reportContainer = data.reportList;
+      console.log(this.reportContainer);
+      
       this.fillterReport();
       this.load = false;
       console.log(this.reportContainer[0].policeStationID.userName)
@@ -144,7 +146,7 @@ export class AdminReportComponent implements OnInit {
   addMissing = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.pattern(/^[\u0621-\u064Aء-ئ][^#&<>\"~;$^%{}?]{2,20}$/)]),
     age: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(3)]),
-    city: new FormControl('', [Validators.required]),
+    city: new FormControl('القاهرة', [Validators.required]),
     stationName: new FormControl('', [Validators.required]),
     gender: new FormControl(``, [Validators.required]),
     image: new FormControl('', []),
@@ -169,7 +171,7 @@ export class AdminReportComponent implements OnInit {
     this.addMissing.controls.description.setValue(this.reportRecord[0].description)
     this.addMissing.controls.finderName.setValue(this.reportRecord[0].reporterName)
     this.addMissing.controls.nationID.setValue(this.reportRecord[0].reporterNationID)
-    this.addMissing.controls.phoneNumber.setValue("0"+this.reportRecord[0].reporterPhone)
+    this.addMissing.controls.phoneNumber.setValue(this.reportRecord[0].reporterPhone)
     this.addMissing.controls.finderEmail.setValue(this.reportRecord[0].reporterEmail)
 
 

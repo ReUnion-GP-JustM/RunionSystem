@@ -1,0 +1,121 @@
+
+<!-- start contact-->
+<section class="contact cont py-3">
+    <div class="container">
+        <div class="heading_contact text-center py-2">
+        <p class="heading_contact_title">
+            الأسئلة الأكثر شيوعًا
+        </p>
+        <p class="heading_contact_desc">
+            يوجد عدد من الإجابات على الأسئلة الأكثر شيوعًا. يمكنك العثور على إجابة سؤالك بداخلها ، أو يمكنك إرسال سؤال
+        </p>
+    </div>
+        <div class="row">
+            
+            <div class="col-lg-6 ">
+                <div>
+                    <ul class="list-unstyled">
+                        <li class="sideli2 noJq1">
+                            <div class=" minili2 d-flex">
+                                <i class="fas fa-ellipsis-h ellipsis"></i> من يمكنه استخدام خدمتنا؟
+                                <i class="fas fa-chevron-down my-auto ms-auto down"><span class="d-none">0</span></i>
+                            </div>
+                        <p class="list-unstyled myhidden1 hiddenul2"> يجب أن يكون عمرك 18 عامًا على الأقل لاستخدام الموقع. يرجى التأكد من إخبارنا باسمك القانوني ورقمك القومي . في حالة إدخال معلومات خاطئة ، لن يتم النظر في البلاغ المقدم وقد تعرض نفسك لمشاكل قانونية
+                        </p>
+                        </li>
+                        <li class="sideli2 noJq2 border-top-0">
+                            <div class=" minili2 d-flex">
+                            <i class="fas fa-ellipsis-h ellipsis"></i>هل الخدمة خاصة / آمنة؟
+                                <i class="fas fa-chevron-down my-auto ms-auto down"><span class="d-none">0</span></i>
+                            </div>
+                            <p class="list-unstyled myhidden2 hiddenul2">نعم. لدينا واجب قانوني لحماية معلوماتك الصحية الشخصية وقد وضعنا عددًا من الضمانات. يرجى قراءة تفاصيل سياسة الخصوصية الخاصة بنا لمعرفة كيف نحمي معلوماتك الشخصية</p>
+                        </li>
+                        <li class="sideli2 noJq3 border-top-0">
+                            <div class=" minili2 d-flex">
+                                <i class="fas fa-ellipsis-h ellipsis"></i>كيف سيتم إخطاري عند العثور على نتيجه للبلاغ الذي قدمته؟
+                                <i class="fas fa-chevron-down my-auto ms-auto down"><span class="d-none">0</span></i>
+                            </div>
+                            <p class="list-unstyled myhidden3 hiddenul2">سيتم إرسال رسالة نصية تحتوي على معلومات الشخص الذي تم العثور عليه إلى بريدك الإلكتروني
+                            </p>
+                        </li>
+                        <li class="sideli2 noJq4 border-top-0">
+                            <div class=" minili2 d-flex">
+                                <i class="fas fa-ellipsis-h ellipsis"></i> ؟ Runion System ما هو 
+                                <i class="fas fa-chevron-down my-auto ms-auto down"><span class="d-none">0</span></i>
+                            </div>
+                            <p class="list-unstyled myhidden4 hiddenul2"> هواول موقع مصري وعربي وافريقي للبحث وتقديم البلاغات عن المفقودين باستخدام تقنيه التعرف علي الوجوه</p>
+                        </li>
+                        <li class="sideli2 noJq5 border-top-0">
+                            <div class=" minili2 d-flex">
+                                <i class="fas fa-ellipsis-h ellipsis"></i>ما هو محتوى خدمات  المقدمه؟
+                                <i class="fas fa-chevron-down my-auto ms-auto down"><span class="d-none">0</span></i>
+                            </div>
+                            <p class="list-unstyled myhidden5 hiddenul2">
+                                يقدم السيستم الخاص بنا مجموعه من الخدمات ابرازها هو,ل 
+                                <br> توفير تقدم البلاغ دون الحاجه الي الذهاب الي قسم البوليس اخدا في الاعتبار ظروف الفيروس المنتشر
+                                <br>  مقارنه بينات الشخص المفقود مع كافه البينات المتاحه من  ملاجئ واقسام بوليس للوصول الي نتيجه في اسرع  وقت
+                                <br>  توفير خدمه توجيه الاهل عن طريف خدمه المواقع الي المكان المتواجد فيه فقيدهم
+
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form_container  p-3 ">
+                        <div class="imgs">
+    
+    
+                        </div>
+                            <div class="over-lay"></div>
+    
+                        <form   [formGroup]="feedForm" (ngSubmit)="feedForm.valid && handelfeedBack()" class="m-auto myform">
+                <div class="form-heading text-center pt-4">
+                        <p>
+                            طرح سؤال؟
+                        </p>
+                    </div>
+                        <div class="form-group">
+                            <input required type="text" name="name" placeholder="Name*" class="form-control"  formControlName="name"
+                            [class.is-valid]="feedForm.controls.name.status == 'VALID' " >
+                            </div>
+                            <div *ngIf="feedForm.controls.name.errors && feedForm.controls.name.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاء ادخال اسم  صحيح</p>
+                        </div>
+                            <div class="form-group">
+                            <input required type="email" name="email" placeholder="email*" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email"
+                            [class.is-valid]="feedForm.controls.email.status == 'VALID' ">
+                            </div>
+                            <div *ngIf="feedForm.controls.email.errors && feedForm.controls.email.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاء ادخال بريد الكتروني صحيح  </p>
+                        </div>
+                        <div class="form-group">
+                        <input required type="text" name="title" placeholder="Title*" class="form-control" formControlName="title"
+                        [class.is-valid]="feedForm.controls.title.status == 'VALID' ">
+                            </div>
+                            <div *ngIf="feedForm.controls.title.errors && feedForm.controls.title.touched"
+                            class="form-group alert alert-danger my-2">
+                            <p> برجاء ادخال عنوان السؤال؟  </p>
+                        </div>
+                                    <div class="form-group">
+                        <textarea class="form-control" name="textarea" placeholder="" id="exampleFormControlTextarea1" rows="3" formControlName="message"
+                        [class.is-valid]="feedForm.controls.message.status == 'VALID' "> السؤال؟</textarea>
+                        </div>
+                        <div *ngIf="feedForm.controls.message.errors && feedForm.controls.message.touched"
+                        class="form-group alert alert-danger my-2">
+                        <p> برجاء ادخال  نص السؤال    </p>
+                    </div>
+                    <div class="w-100 text-center form-group pb-5">
+    
+                        <button  class="form-control myFormbtn " [disabled]="feedForm.invalid"><i class="fa fa-send me-1"></i> <span>send</span></button>
+                    </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    
+    </div>
+</section>
+<!--end contact section   -->

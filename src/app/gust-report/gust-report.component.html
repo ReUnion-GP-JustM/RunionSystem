@@ -214,11 +214,10 @@
 
                     <div class="col-md-6 my-2">
                         <div class="form-group my-2">
-                            <select formControlName="city" class="form-select" aria-label="Default select example">
-                                <option value="القاهره" selected> القاهره</option>
-                                <option value="1">الجيزه</option>
-                                <option value="2">قليوبيه</option>
-                                <option value="3">اسوان</option>
+                            <select formControlName="city" class="form-select"
+                                aria-label="Default select example">
+                                <option *ngFor="let _egyptCity of egyptCity" [selected]="_egyptCity.governorate_name_ar === 'القاهرة'">
+                                    {{_egyptCity.governorate_name_ar}}</option>
                             </select>
                             <i class=" fa fa-map"></i>
                         </div>
@@ -229,11 +228,10 @@
                     </div>
                     <div class="col-md-6 my-2">
                         <div class="form-group my-2">
+                            
                             <select formControlName="policeStationID" class="form-select">
-                                <option value="policeStation" selected>policeStation</option>
-                                <option value="1">الجيزه</option>
-                                <option value="2">قليوبيه</option>
-                                <option value="3">اسوان</option>
+                                <option *ngFor="let _policeStationLists of policeStationLists" [selected]="_policeStationLists === 'policeStation'">
+                                    {{_policeStationLists.userName}}</option>
                             </select>
                             <i class="fa fa-house-user"></i>
                         </div>

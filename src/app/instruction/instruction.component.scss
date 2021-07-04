@@ -1,0 +1,136 @@
+.main {
+    background-color: #345862;
+    max-width: 1200px;
+    // height: 600px;
+    margin-right: auto;
+    color: white;
+    text-align: left;
+    // font-family: 'GE SS Two';
+    font-size: 30px;
+    border-top-right-radius: 70%;
+    border-style: dashed;
+    border-color: white;
+    border-width: 2px;
+    border-bottom: 0;
+    border-left: 0;
+    z-index: -1;
+    // overflow: hidden;
+}
+.main h2 {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.main2 {
+    background-color: #345862;
+    max-width: 1200px;
+    // height: 500px;
+    margin-right: auto;
+    color: white;
+    text-align: left;
+    // font-family: 'GE SS Two';
+    font-size: 30px;
+    border-style: dashed;
+    border-color: white;
+    border-width: 2px;
+    border-bottom: 0;
+    border-top: 0;
+    border-left: 0;
+    z-index: -1;
+    // overflow: hidden;
+}
+.circle1 {
+    border-radius: 50%;
+    border-color: #345862;
+    background-color: white;
+    border-style: dashed;
+    border-width: 2px;
+    width: 50px;
+    height: 50px;
+    margin-right: auto;
+    text-align: center;
+    color: #345862;
+    font-size: 30px;
+    font-family: "impact";
+    z-index: 2323;
+}
+.circle2 {
+    border-radius: 50%;
+    border-color: #345862;
+    background-color: white;
+    border-style: dashed;
+    border-width: 2px;
+    width: 50px;
+    height: 50px;
+    margin-right: auto;
+    text-align: center;
+    color: #345862;
+    font-size: 30px;
+    font-family: "impact";
+
+    z-index: 2323;
+}
+.circle3 {
+    border-radius: 50%;
+    border-color: #345862;
+    background-color: white;
+    border-style: dashed;
+    border-width: 2px;
+    width: 50px;
+    height: 50px;
+    margin-right: auto;
+    text-align: center;
+    color: #345862;
+    font-size: 30px;
+    font-family: "impact";
+    z-index: 2323;
+}
+.circle4 {
+    border-radius: 50%;
+    border-color: #345862;
+    background-color: white;
+    border-style: dashed;
+    border-width: 2px;
+    width: 50px;
+    height: 50px;
+    margin-right: auto;
+    text-align: center;
+    color: #345862;
+    font-size: 30px;
+    font-family: "impact";
+    z-index: 2323;
+}
+img {
+    width: 450px;
+    height: 250px;
+    margin-left: 20px;
+}
+@media (min-width: 755px) {
+  
+    h4 {
+        max-width: 600px;
+        margin-right: auto;
+    }
+}
+@media (max-width: 750px) {
+    .circle{
+        text-align: center !important;
+    }
+    .main h4 ,.main2 h4 {
+        font-size: 19px;
+        text-align: center;
+    }
+    img{
+        
+        width: 380px !important;
+        height: 350px !important;
+        margin-left: 20px;
+
+    }
+    h4 {
+        max-width: 372.5px;
+        margin-right: auto;
+    }
+    .continer{
+        padding-left: 0 !important;
+    }
+}

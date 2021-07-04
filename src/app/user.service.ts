@@ -75,6 +75,10 @@ export class UserService {
   confirmEmail():Observable<any>{
     return this._HttpClient.get(this.baseURL+"confirmMail");
   }
+  feedBack(data: any): Observable<any> {
+    return this._HttpClient.post(this.baseURL + 'feedBack', data);
+  }
+
 
   // ==========================================================================
   // ==========================================================================

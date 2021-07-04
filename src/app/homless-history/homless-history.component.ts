@@ -183,7 +183,7 @@ export class HomlessHistoryComponent implements OnInit {
     // this.addMissing.controls.stationName.setValue(this.homelessRecord[0].policeSationID.userName)
     this.addMissing.controls.finderName.setValue(this.homelessRecord[0].finderName)
     this.addMissing.controls.nationID.setValue(this.homelessRecord[0].finderNationID)
-    this.addMissing.controls.phoneNumber.setValue("0"+this.homelessRecord[0].finderPhone)
+    this.addMissing.controls.phoneNumber.setValue(this.homelessRecord[0].finderPhone)
     this.addMissing.controls.finderEmail.setValue(this.homelessRecord[0].finderEmail)
   }
   handelEditReport(id: any) {

@@ -3,8 +3,9 @@
 <!-- <app-map></app-map> -->
 
 <section class="fullPgeContainere w-100 h-100">
+    
     <section class="rightPart pt-5">
-              
+             <i routerLink="/admin" class="fa fa-home fa-2x close " style="color: #fff; cursor: pointer;"></i> 
         <div class="mt-4 text-center" dir="rtl">
             <img *ngIf="profImage" class="profImg" src="http://localhost:3000/{{profImage}}"> <h3 *ngIf="userName" class="text-light"> {{userName}}</h3>
         </div>
@@ -88,7 +89,7 @@
                 <div class="optionBodyItem mb-2" (click)="changeAsideNav('getAllPoliceStationsRequest')">
                     <h4>طلبات تسجل اقسام شرطه جديده</h4>
                 </div>
-                <div class="optionBodyItem mb-2">
+                <div  routerLink="/signUp" class="optionBodyItem mb-2">
                     <h4>اضافه قسم شرطه جديده</h4>
                 </div>
             </div>
@@ -113,7 +114,7 @@
                 <div class="optionBodyItem mb-2" (click)="changeAsideNav('shelterRequstToJoin')">
                     <h4>طلبات تسجل الملاجئ او ودور الرعايه</h4>
                 </div>
-                <div class="optionBodyItem mb-2">
+                <div routerLink="/signUp" class="optionBodyItem mb-2">
                     <h4>اضافه الملاجئ او ودور الرعايه</h4>
                 </div>
             </div>
@@ -225,7 +226,7 @@
                                 <div class="optionBodyItemh4  mb-2"(click)="changeAsideNav('getAllPoliceStationsRequest')">
                                     <h4>طلبات تسجل اقسام شرطه جديده</h4>
                                 </div>
-                                <div class="optionBodyItemh4  mb-2"(click)="changeAsideNav('getAllPoliceStationsRequest')">
+                                <div  routerLink="/signUp" class="optionBodyItemh4  mb-2"(click)="changeAsideNav('getAllPoliceStationsRequest')">
                                     <h4>اضافه قسم شرطه جديده</h4>
                                 </div>
                             </div>
@@ -246,7 +247,7 @@
                                 <div class="optionBodyItemh4  mb-2" (click)="changeAsideNav('shelterRequstToJoin')">
                                     <h4>طلبات تسجل الملاجئ او ودور الرعايه</h4>
                                 </div>
-                                <div class="optionBodyItemh4  mb-2" (click)="changeAsideNav('shelterRequstToJoin')">
+                                <div  routerLink="/signUp" class="optionBodyItemh4  mb-2" (click)="changeAsideNav('shelterRequstToJoin')">
                                        <h4>اضافه الملاجئ او ودور الرعايه</h4>
 
                                 </div>
@@ -290,9 +291,8 @@
         </div>
         <div class="container">
             <div [ngSwitch]="displayoption" class="w-100">
-                <app-super-admin-dash-bored *ngSwitchCase="'superadminDashBored'"></app-super-admin-dash-bored>
                 <app-admin-report *ngSwitchCase="'adminReport'"></app-admin-report>
-                <app-reporthistory *ngSwitch Case="'adminReportHistory'"></app-reporthistory>
+                <app-reporthistory *ngSwitchCase="'adminReportHistory'"></app-reporthistory>
                 <app-reporthistory *ngSwitchCase="'displayMissing'"></app-reporthistory>
                 <app-add-missing *ngSwitchCase="'addMissing'"></app-add-missing>
                 <app-get-all-homeless *ngSwitchCase="'getAllHomeless'"></app-get-all-homeless>
@@ -389,6 +389,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
 
@@ -441,6 +442,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
 
@@ -500,6 +502,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
 
@@ -523,4 +526,5 @@
         </div>
       </div>
     </div>
+    
   </div>

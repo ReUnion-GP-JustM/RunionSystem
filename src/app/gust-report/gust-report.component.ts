@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HomelessService } from '../homeless.service';
 import { ReportService } from '../report.service';
+import { SuperAdminPrivalgesService } from '../super-admin-privalges.service';
+import { UserService } from '../user.service';
 declare var $: any
 
 @Component({
@@ -17,8 +19,27 @@ export class GustReportComponent implements OnInit {
   notFound: boolean = false;
   addForm: boolean = false;
   searchForm: boolean = true;
-  constructor(public _HomelessService: HomelessService, public _ReportService: ReportService) { }
+  policeStationLists: any;
+  egyptCity: any;
+  constructor(public _HomelessService: HomelessService, public _ReportService: ReportService, public _SuperAdminPrivalgesService: SuperAdminPrivalgesService,
+    public _UserService: UserService) {
+    this.egyptCity = _UserService.egyptCity;
+    this.getAllPloceStation();
+    // this.getAllShelter();
+  }
+  getAllPloceStation() {
+    this._SuperAdminPrivalgesService.getAllPoliceSationsGust().subscribe(response => {
+      if (response.message == 'done') {
 
+        this.policeStationLists = response.policeStationList;
+
+      } else {
+        console.log("fail");
+
+      }
+    })
+
+  }
   // selectImage
   selectImage(event: any) {
     if (event.target.files.length > 0) {
@@ -166,7 +187,7 @@ export class GustReportComponent implements OnInit {
 
   handelAddMissing() {
     if (this.addMissing.valid) {
-
+      this.load = true;
       const formData = new FormData();
       formData.append("img", this.images);
       formData.append("name", this.searchReport.controls.name.value);
@@ -184,21 +205,38 @@ export class GustReportComponent implements OnInit {
         console.log(response);
 
         if (response.message == "Done") {
+          this.load = false;
+
           alert("added successfully");
           this.addMissing.reset();
+          let gender = this.searchReport.controls.gender.value;
           this.searchReport.reset();
+          this.searchReport.controls.gender.setValue(gender);
+          this.addMissing.controls.city.setValue('القاهره');
+          this.addMissing.controls.policeStationID.setValue("policeStation");
+
           this.addForm = false;
           this.searchForm = true;
 
         } else if (response.message == "in-valid image") {
+          this.load = false;
+
           alert("in-valid image");
         } else if (response.message == "u report already submited once") {
+          this.load = false;
+
           alert("u report already submited once");
         } else if (response.message == "in-valid policeStation") {
+          this.load = false;
+
           alert("in-valid policeStation");
         } else if (response.message == "catch err") {
+          this.load = false;
+
           alert("fail");
         } else {
+          this.load = false;
+
           alert("in-valid input");
         }
 

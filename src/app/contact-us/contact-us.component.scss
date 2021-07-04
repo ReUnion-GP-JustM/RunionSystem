@@ -1,0 +1,117 @@
+/*questions*/
+
+.contact{
+    background-color: #f0f8ff;
+}
+.form_container
+{
+    position: relative;
+    width:60%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 22px 0;
+    height: 663px;
+    background-color: #0a3d62;
+    align-self: start;
+    border-radius: 8px;
+    box-shadow: 0 36px 46px rgba(255,255,255,.24);
+}
+.imgs
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity:.2;
+}
+.over-lay
+{
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255,255,255,.02);
+
+    
+}
+.myform
+{
+  position: absolute;
+    width: 100%;
+    height: 100;
+    top: 0;
+    left: 0;
+    
+}
+.form-group input , .form-group textarea
+{
+     border-radius: 15px;
+    border: 2px solid #cacaca75 !important;
+     background-color: transparent;
+     height: 52px;
+    padding: 0 22px;
+    border-radius: 52px;
+    color: #fff;
+    transition: all .3s ease-out;
+    
+}
+.form-group textarea
+{
+   border-radius: 22px;
+    min-height: 100px;
+}
+.form-group 
+{
+    padding:15px;
+}
+.form-heading 
+{
+   font-size: 38px;
+    color: #fff;
+    font-weight: 500;
+        font-family: Montserrat-Regular;
+}
+
+.myFormbtn
+{
+    background-color: gray;
+     border-radius: 52px;
+     border: 0px solid transparent !important;
+    transition: all 1s;
+}
+.myFormbtn:hover
+{
+  background-color: #fff;  
+}
+.childContainerTwo{
+    display: none;
+}
+.sideli2{
+    padding: 0 16px;
+    border: 1px rgba(0,0,0,.5) solid;
+}
+.minili2{
+    padding: 16px 0;
+    color: #323232;
+    cursor: pointer;
+}
+.ellipsis{
+    margin-top: 6px;
+    margin-right: 6px;
+}
+.hiddenul2{
+    display: none;
+}
+.down{
+    transition: all 0.5s;
+}
+.heading_contact_title{
+    font-size: 46px;
+    text-align: center;
+    color: #272727;
+}
+/*questions*/

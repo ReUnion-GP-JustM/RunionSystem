@@ -20,6 +20,10 @@ baseURL = `http://localhost:3000/`;
       })
     });
   }
+  getAllPoliceSationsGust(): Observable<any> {
+ 
+    return this._HttpClient.get(this.baseURL + "displayPoliceStationsGust");
+  }
 
   getAllShlter(): Observable<any> {
     let token = localStorage.getItem('token');
