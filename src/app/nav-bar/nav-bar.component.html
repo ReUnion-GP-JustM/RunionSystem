@@ -6,19 +6,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
           <li class="nav-item">
-            <a class="navbarWord1 nav-link active" aria-current="page" [routerLink]="['/home']" routerLinkActive="router-link-active" >الصفحة الرئيسية</a>
+            <a class="navbarWord nav-link active" aria-current="page" [routerLink]="['/home']" routerLinkActive="active">الصفحة الرئيسية</a>
           </li>
           <li class="nav-item">
-            <a class="navbarWord nav-link" [routerLink]="['/instruction']"  >طريقة الإستخدام</a>
+            <a class="navbarWord nav-link" [routerLink]="['/instruction']"  routerLinkActive="active">طريقة الإستخدام</a>
           </li>
           <li class="nav-item">
-            <a class="navbarWord nav-link" [routerLink]="['/searchReport']"  >ابدأ البحث</a>
+            <a class="navbarWord nav-link" [routerLink]="['/searchReport']"   routerLinkActive="active">ابدأ البحث</a>
           </li>
           <li class="nav-item">
-            <a class="navbarWord nav-link" routerLink="/contactUS">التواصل و معلومات</a>
+            <a class="navbarWord nav-link" routerLink="/contactUS"  routerLinkActive="active">التواصل و معلومات</a>
           </li>
           <li *ngIf="tokenUser" class="nav-item">
-            <a class="navbarWord nav-link" routerLink="/admin">الصفحه الشخصيه</a>
+            <a class="navbarWord nav-link" routerLink="/admin"  routerLinkActive="active">الصفحه الشخصيه</a>
           </li>
 
         </ul>
