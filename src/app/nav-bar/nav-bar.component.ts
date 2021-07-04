@@ -10,11 +10,14 @@ export class NavBarComponent implements OnInit {
   tokenUser:boolean=false;
   decoded:any;
   constructor() {
-    let token = localStorage.getItem('token');
-    this.decoded = jwt_decode(`${token}`);
-    if (this.decoded.userRole == 'superAdmin' || this.decoded.userRole == 'policeStation' ||this.decoded.userRole == 'shelter'){
-   this.tokenUser=true;
+    if (localStorage.getItem('token')) {
+      let token = localStorage.getItem('token');
+      this.decoded = jwt_decode(`${token}`);
+      if (this.decoded.userRole == 'superAdmin' || this.decoded.userRole == 'policeStation' ||this.decoded.userRole == 'shelter'){
+     this.tokenUser=true;
+      }
     }
+   
    }
 
   ngOnInit(): void {

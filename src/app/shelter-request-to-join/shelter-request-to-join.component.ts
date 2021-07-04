@@ -33,6 +33,7 @@ export class ShelterRequestToJoinComponent implements OnInit {
 
   }
   aproveRequest(i: any) {
+    this.load = true;
     this._SuperAdminPrivalgesService.approveRequest(i).subscribe(data => {
       if (data.message == 'aproved user') {
         alert("user aproved successfully");
@@ -43,9 +44,11 @@ export class ShelterRequestToJoinComponent implements OnInit {
       } else {
         alert("fail");
       }
+      this.load = false;
     })
   }
   deleteshelter(i: any) {
+    this.load = true;
          this._SuperAdminPrivalgesService.deleteUser(i).subscribe(data=>{
           if (data.message=="user deleted successfully") {
             alert("user deleted successfull");
@@ -56,6 +59,7 @@ export class ShelterRequestToJoinComponent implements OnInit {
           } else {
             alert("fail");
           }
+          this.load = false;
          })
   }
 }

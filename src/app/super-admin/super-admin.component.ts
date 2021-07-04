@@ -22,6 +22,11 @@ export class SuperAdminComponent implements OnInit {
   decoded: any;
   profImage: any;
   userLocation: any
+  homebtn(){
+  //  this._Router.navigateByUrl('/admin');
+  this.dash = true
+  this.displayoption =""
+  }
   constructor(private el: ElementRef, private _UserService: UserService, public _Router: Router) {
     let token = localStorage.getItem('token');
     this.decoded = jwt_decode(`${token}`);

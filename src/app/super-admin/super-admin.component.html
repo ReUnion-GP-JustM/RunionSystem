@@ -5,7 +5,7 @@
 <section class="fullPgeContainere w-100 h-100">
     
     <section class="rightPart pt-5">
-             <i routerLink="/admin" class="fa fa-home fa-2x close " style="color: #fff; cursor: pointer;"></i> 
+             <i (click)="homebtn()" class="fa fa-home fa-2x close " style="color: #fff; cursor: pointer;"></i> 
         <div class="mt-4 text-center" dir="rtl">
             <img *ngIf="profImage" class="profImg" src="http://localhost:3000/{{profImage}}"> <h3 *ngIf="userName" class="text-light"> {{userName}}</h3>
         </div>

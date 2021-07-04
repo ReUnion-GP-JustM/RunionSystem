@@ -125,7 +125,7 @@ getAllShelter() {
   }
   communicateParents() {
     if (this.addMissing.valid) {
-
+      this.load = true;
       const formData = new FormData();
       formData.append("img", this.images);
       formData.append("name", this.searchReport.controls.name.value);
@@ -146,18 +146,23 @@ getAllShelter() {
         console.log(response);
         
         if (response.message == "Done") {
+         
           alert("Done");
-          this.addMissing.reset();
           $("#exampleModal").modal("hide");
-
+          this.addMissing.reset();
+          this.load = false;
         }else if (response.message == "already in coummunicate") {
           alert("already in coummunicate");
+          this.load = false;
         } else if (response.message == "invalid report") {
           alert("invalid report");
+          this.load = false;
         }else if (response.message == "in-valid input") {
           alert("in-valid input");
+          this.load = false;
         }else if (response.message == "catch error") {
           alert("fail");
+          this.load = false;
         }
 
       })
@@ -197,7 +202,7 @@ getAllShelter() {
   // }
   handelAddMissing() {
     if (this.addMissing.valid) {
-
+      this.load = true;
       const formData = new FormData();
       formData.append("img", this.images);
       formData.append("name", this.searchReport.controls.name.value);
@@ -223,17 +228,22 @@ getAllShelter() {
           this.searchReport.reset();
           this.addForm= false;
           this.searchForm=true;
-
+          this.load = false;
         }else if (response.message == "already in coummunicate") {
+          this.load = false;
           alert("already in coummunicate");
         } else if (response.message == "already exist") {
           alert("already exist");
+          this.load = false;
         }else if (response.message == "in-valid shelter id") {
           alert("in-valid shelter id");
+          this.load = false;
         }else if (response.message == "please enter valid data err") {
           alert("in-valid input");
+          this.load = false;
         }else if (response.message == "catch err") {
           alert("fail");
+          this.load = false;
         }
 
       })

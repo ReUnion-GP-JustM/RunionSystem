@@ -34,19 +34,24 @@ export class RequestToJoinPoliceStationComponent implements OnInit {
 
   }
   aproveRequest(i: any) {
+    this.load = true;
     this._SuperAdminPrivalgesService.approveRequest(i).subscribe(data => {
       if (data.message == 'aproved user') {
         alert("user aproved successfully");
         this.getAllRequrests();
         $("#exampleModal").modal("hide");
+        this.load = false;
       } else if (data.message == 'already  approved user') {
         alert("already  approved user")
+        this.load = false;
       } else {
         alert("fail");
+        this.load = false;
       }
     })
   }
   deletePoliceStation(i: any) {
+    this.load = true;
          this._SuperAdminPrivalgesService.deleteUser(i).subscribe(data=>{
           if (data.message=="user deleted successfully") {
             alert("user deleted successfull");
@@ -57,6 +62,7 @@ export class RequestToJoinPoliceStationComponent implements OnInit {
           } else {
             alert("fail");
           }
+          this.load = false;
          })
   }
 }

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SuperAdminPrivalgesService } from '../super-admin-privalges.service'
-declare var $:any
+declare var $: any
 @Component({
   selector: 'app-get-all-police-stations',
   templateUrl: './get-all-police-stations.component.html',
   styleUrls: ['./get-all-police-stations.component.scss']
 })
 export class GetAllPoliceStationsComponent implements OnInit {
-  policeStationLists:any[]=[];
+  policeStationLists: any[] = [];
   load: boolean = true;
-  term:any;
+  term: any;
   constructor(private _SuperAdminPrivalgesService: SuperAdminPrivalgesService) {
     this.getAllPloceStation();
   }
@@ -26,9 +26,9 @@ export class GetAllPoliceStationsComponent implements OnInit {
 
         this.policeStationLists = response.policeStationList;
         console.log("kkk");
-        
+
         console.log(this.policeStationLists);
-        
+
         this.load = false;
       } else {
         console.log("fail");
@@ -39,10 +39,10 @@ export class GetAllPoliceStationsComponent implements OnInit {
   }
 
   recordID: any;
-  arrayID:any;
+  arrayID: any;
   stationRecord: any[] = [];
   getSationInfo(i: any) {
-    this.arrayID =i;
+    this.arrayID = i;
     this.stationRecord = []
     this.recordID = this.policeStationLists[i]._id;
     this.stationRecord.push(this.policeStationLists[i]);
@@ -51,38 +51,46 @@ export class GetAllPoliceStationsComponent implements OnInit {
   }
 
   changeUserRole() {
-   let mydata = {
-    role: this.changeRole.controls.role.value
+    this.load = true;
+    let mydata = {
+      role: this.changeRole.controls.role.value
     }
     this._SuperAdminPrivalgesService.changeUserRole(mydata, this.recordID).subscribe(data => {
       console.log(data.message);
-      
+
       if (data.message == "Done") {
         alert("updated successfully");
         this.getAllPloceStation();
         $("#exampleModal").modal("hide");
-      }else if(data.message == "invalid user"){
+        this.load = false;
+      } else if (data.message == "invalid user") {
         alert("invalid user");
-      }else{
-        alert("fail- try again")
+        this.load = false;
+      } else {
+        alert("fail- try again");
+        this.load = false;
       }
     })
   }
 
   deletePoliceStation() {
-     this._SuperAdminPrivalgesService.deleteUser(this.recordID).subscribe(data => {
-       
-       if (data.message == "user deleted successfully") {
-         alert("user deleted successfully");
-         this.getAllPloceStation();
-         $("#exampleModal").modal("hide");
-       }else if(data.message == "user not found"){
-         alert("invalid user");
-       }else{
-         alert("fail- try again")
-       }
-     })
-   }
+    this.load = true;
+    this._SuperAdminPrivalgesService.deleteUser(this.recordID).subscribe(data => {
+
+      if (data.message == "user deleted successfully") {
+        alert("user deleted successfully");
+        this.getAllPloceStation();
+        $("#exampleModal").modal("hide");
+        this.load = false;
+      } else if (data.message == "user not found") {
+        alert("invalid user");
+        this.load = false;
+      } else {
+        alert("fail- try again");
+        this.load = false;
+      }
+    })
+  }
 
 
 

@@ -118,7 +118,7 @@ export class GustReportComponent implements OnInit {
   }
   communicateParents() {
     if (this.addMissing.valid) {
-
+      this.load = true;
       const formData = new FormData();
       formData.append("img", this.images);
       formData.append("name", this.searchReport.controls.name.value);
@@ -142,15 +142,19 @@ export class GustReportComponent implements OnInit {
           alert("Done");
           this.addMissing.reset();
           $("#exampleModal").modal("hide");
-
+          this.load = false;
         } else if (response.message == "already in coummunicate") {
           alert("already in coummunicate");
+          this.load = false;
         } else if (response.message == "invalid report") {
           alert("invalid report");
+          this.load = false;
         } else if (response.message == "in-valid input") {
           alert("in-valid input");
+          this.load = false;
         } else if (response.message == "catch error") {
           alert("fail");
+          this.load = false;
         }
 
       })

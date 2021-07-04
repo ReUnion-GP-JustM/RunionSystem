@@ -106,35 +106,41 @@ export class GetAllHomelessComponent implements OnInit {
   }
 
   archive(id: any) {
+    this.load = true;
     this._HomelessService.closeHomeless(id).subscribe(response => {
       if (response.message == "homless closed successfully") {
         alert("homless closed successfully");
         this.getAllHomeless()
         $("#exampleModal").modal("hide");
-
+        this.load = false;
 
       } else if (response.message == "homless  alrady closed ") {
         // $("#exampleModal1").modal("hide");
         alert("homless  alrady closed ");
+        this.load = false;
       } else {
         alert("fail to close please try again")
+        this.load = false;
       }
     })
   }
 
   undifinedHomeless(id: any) {
+    this.load = true;
     this._HomelessService.undifinedHomeless(id).subscribe(response => {
       if (response.message == "homless undefined successfully") {
         alert("homless closed successfully");
         this.getAllHomeless()
         $("#exampleModal").modal("hide");
-
+        this.load = false;
 
       } else if (response.message == "homless  alrady undefined") {
         // $("#exampleModal1").modal("hide");
         alert("homless  alrady undefined ");
+        this.load = false;
       } else {
         alert("fail to close please try again")
+        this.load = false;
       }
     })
   }

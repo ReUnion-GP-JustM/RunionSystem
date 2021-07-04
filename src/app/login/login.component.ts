@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   message: String = '';
   loginError: boolean = false;
   loginErrorMessage: any;
+  load: boolean = false;
+
   constructor(private _UserService: UserService, public _Router: Router) {
     localStorage.clear();
   }
@@ -76,6 +78,8 @@ export class LoginComponent implements OnInit {
 
 
   handelSignIn() {
+
+    this.load = true;
     let Data = {
       email: this.loginForm.controls.email.value,
       password: this.loginForm.controls.password.value,
@@ -86,22 +90,34 @@ export class LoginComponent implements OnInit {
       console.log(data.message);
 
       if (data.message == 'invalid data') {
+        this.load = false;
+
         this.loginError = true;
         this.loginErrorMessage = "In-valid data please enter valid data";
       } else if (data.message == "Not register user") {
+        this.load = false;
+
         this.loginError = true;
         this.loginErrorMessage = "This user is not registered please signUp first";
 
       } else if (data.message == "pinding for  admin Aprove") {
+        this.load = false;
+
         this.loginError = true;
         this.loginErrorMessage = "Pinding for  admin approval";
       } else if (data.message == "u have  to confirm u email First") {
+        this.load = false;
+
         this.loginError = true;
         this.loginErrorMessage = "Please confirm your email";
       } else if (data.message == "invalid Password") {
+        this.load = false;
+
         this.loginError = true;
         this.loginErrorMessage = "Please enter the correct password";
       } else if (data.message == "loginSucess") {
+        this.load = false;
+
         //set token localStorage
         localStorage.setItem('token', data.token);
         //redirect homePage
@@ -109,6 +125,8 @@ export class LoginComponent implements OnInit {
         //Navigate DashBored
         this.loginForm.reset();
       } else {
+        this.load = false;
+
         this.loginError = true;
         this.loginErrorMessage = "In-valid Data Please Enter Valid Data";
       }
@@ -119,6 +137,8 @@ export class LoginComponent implements OnInit {
     this.forgetPasswordForm.controls.email.setValue(this.loginForm.controls.email.value);
   }
   handelForgetPassword() {
+    this.load = true;
+
     this.count = this.count + 1;
     console.log(this.count);
 
@@ -126,6 +146,8 @@ export class LoginComponent implements OnInit {
     this._UserService.forgetPassword(data).subscribe(response => {
       console.log(response.message);
       if (response.message == 'in-valid user') {
+        this.load = false;
+
         this.loginError = true;
         this.loginErrorMessage = "please Enter Valid Email";
       } else if (response.message == 'done') {
@@ -136,6 +158,7 @@ export class LoginComponent implements OnInit {
           $(".thirdForm").delay(500).fadeIn();
         })
 
+
         if (this.count > 1) {
           this.loginError = true;
           this.loginErrorMessage = "Please check your email for the new activation  code";
@@ -144,16 +167,22 @@ export class LoginComponent implements OnInit {
           this.loginErrorMessage = "Please Check you email for activation code";
         }
 
+        this.load = false;
 
       } else {
+
         this.loginError = true;
         this.loginErrorMessage = "Please enter valid data";
+        this.load = false;
+
       }
 
     })
   }
 
   handelCheckCode() {
+    this.load = true;
+
     let data = {
       email: this.checkCodeForm.controls.email.value,
       code: this.checkCodeForm.controls.code.value
@@ -161,8 +190,11 @@ export class LoginComponent implements OnInit {
     this._UserService.checkCode(data).subscribe(response => {
       console.log(response.message);
       if (response.message == 'invalid code') {
+
         this.loginError = true;
         this.loginErrorMessage = "In-valid code please re-enter the code";
+        this.load = false;
+
       } else if (response.message == 'matched code') {
 
         this.activateForm.controls.email.setValue(this.checkCodeForm.controls.email.value);
@@ -171,15 +203,21 @@ export class LoginComponent implements OnInit {
           $(".thirdForm").fadeOut(500);
           $(".forthForm").delay(500).fadeIn();
         })
-        this.loginError=false;
+        this.loginError = false;
         this.loginErrorMessage;
+        this.load = false;
+
 
       } else if (response.message = "invalid user") {
         this.loginError = true;
         this.loginErrorMessage = "Please enter valid email";
+        this.load = false;
+
       } else {
         this.loginError = true;
         this.loginErrorMessage = "Please enter valid data";
+        this.load = false;
+
       }
 
     })
@@ -189,6 +227,8 @@ export class LoginComponent implements OnInit {
 
 
   activateForgetPasswordForm() {
+    this.load = true;
+
     let data = {
       email: this.activateForm.controls.email.value,
       code: this.activateForm.controls.code.value,
@@ -202,22 +242,28 @@ export class LoginComponent implements OnInit {
       if (response.message == 'invalid code') {
         this.loginError = true;
         this.loginErrorMessage = "In-valid code";
+        this.load = false;
+
       } else if (response.message == 'password updated Successfully') {
 
         this.loginError = true;
         this.loginErrorMessage = "Password updated successfully";
         $(".forthForm").fadeOut(500);
         $(".firstForm").delay(500).fadeIn();
+        this.load = false;
 
 
       } else if (response.message == 'invalid user') {
 
         this.loginError = true;
         this.loginErrorMessage = "Please enter valid email ";
+        this.load = false;
 
       } else {
         this.loginError = true;
         this.loginErrorMessage = "Please enter valid data ";
+        this.load = false;
+
       }
 
     })
