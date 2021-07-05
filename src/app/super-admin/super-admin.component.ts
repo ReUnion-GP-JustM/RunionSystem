@@ -12,6 +12,8 @@ declare var $: any;
 })
 export class SuperAdminComponent implements OnInit {
   load: boolean = false;
+  load3: boolean = false;
+
   dash: boolean = true;
   collapase: boolean[] = [true, true, true, true, true];
   displayoption: String = "";
@@ -172,7 +174,8 @@ export class SuperAdminComponent implements OnInit {
   // api Method
   handelUpdatePassword() {
     if (this.updatePasswordForm.valid) {
-      this.load = true;
+
+      this.load3 = true;
       const formData = new FormData();
       formData.append("oldPassword", this.updatePasswordForm.controls.oldPassword.value);
       formData.append("password", this.updatePasswordForm.controls.newPassword.value);
@@ -180,7 +183,7 @@ export class SuperAdminComponent implements OnInit {
 
       this._UserService.updatePassword(formData).subscribe(response => {
         if (response.message == "password updated Successfully") {
-          this.load = false;
+         
           alert("Done");
           $("#updatePassword").modal("hide");
           this.updatePasswordForm.reset();
@@ -199,6 +202,7 @@ export class SuperAdminComponent implements OnInit {
         } else {
           alert("fail please try again")
         }
+         this.load3 = false
 
       })
     }
@@ -211,23 +215,21 @@ export class SuperAdminComponent implements OnInit {
 
   handeluploadImg() {
     if (this.uploadImg.valid) {
-      this.load = true;
+      this.load3 = true;
       const formData = new FormData();
       formData.append("img", this.images);
 
       this._UserService.updateImage(formData).subscribe(data => {
         if (data.message == "in-valid image") {
           alert("in-valid image please try again");
-          this.load = false;
-
+        
         } else if (data.message == 'password updated Successfully') {
 
           alert("Done");
           $("#imageModal").modal("hide");
           localStorage.setItem('token',data.token);
           this.profImage = data.imageURl;
-          this.load = false;
-    
+         
           this.uploadImg.reset();
 
         }
@@ -235,7 +237,7 @@ export class SuperAdminComponent implements OnInit {
 
           alert("in-valid user");
           $("#imageModal").modal("hide");
-          this.load = false;
+        
           this.uploadImg.reset();
           localStorage.clear();
           this._Router.navigateByUrl("");
@@ -243,10 +245,10 @@ export class SuperAdminComponent implements OnInit {
 
 
         } else {
-          this.load = false;
           alert("in-valid Data");
 
         }
+        this.load3 = false;
       })
     } else {
 
@@ -276,7 +278,7 @@ export class SuperAdminComponent implements OnInit {
 
   handelUpdateInfo() {
 
-this.load = true;
+this.load3 = true;
     console.log(this.link.length)
 
     if (this.link.length == 0 || !this.updateInfo.valid) {
@@ -299,23 +301,24 @@ this.load = true;
           this.updateInfo.controls.userName.setValue(data.info.userName);
           this.updateInfo.controls.location.setValue(data.info.location);
           this.userName =data.info.userName
-          this.load = false;
+        
 
 
         } else if(data.message == "in-valid user") {
           // alert("Fail please  try agin");
           this._Router.navigateByUrl('');
-          this.load = false;
+  
 
         }else if(data.message == "validation error") {
           alert("In-valid data please enter valid data");
-          this.load = false;
+         
 
         }else{
           alert("Some thing wrong please try again")
-          this.load = false;
+          
 
         }
+        this.load3 = false;
       })
     }
   }

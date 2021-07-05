@@ -10,6 +10,7 @@ declare var $: any
 export class GetAllPoliceStationsComponent implements OnInit {
   policeStationLists: any[] = [];
   load: boolean = true;
+  load3:boolean= false;
   term: any;
   constructor(private _SuperAdminPrivalgesService: SuperAdminPrivalgesService) {
     this.getAllPloceStation();
@@ -51,7 +52,7 @@ export class GetAllPoliceStationsComponent implements OnInit {
   }
 
   changeUserRole() {
-    this.load = true;
+    this.load3= true;
     let mydata = {
       role: this.changeRole.controls.role.value
     }
@@ -62,33 +63,29 @@ export class GetAllPoliceStationsComponent implements OnInit {
         alert("updated successfully");
         this.getAllPloceStation();
         $("#exampleModal").modal("hide");
-        this.load = false;
       } else if (data.message == "invalid user") {
         alert("invalid user");
-        this.load = false;
       } else {
         alert("fail- try again");
-        this.load = false;
       }
+      this.load3=false
     })
   }
 
   deletePoliceStation() {
-    this.load = true;
+    this.load3 = true;
     this._SuperAdminPrivalgesService.deleteUser(this.recordID).subscribe(data => {
 
       if (data.message == "user deleted successfully") {
         alert("user deleted successfully");
         this.getAllPloceStation();
         $("#exampleModal").modal("hide");
-        this.load = false;
       } else if (data.message == "user not found") {
         alert("invalid user");
-        this.load = false;
       } else {
         alert("fail- try again");
-        this.load = false;
       }
+      this.load3 = false;
     })
   }
 

@@ -15,6 +15,8 @@ export class AdminReportComponent implements OnInit {
   reportRecord: any[] = [];
   load: boolean = true;
   load2: boolean = false;
+  load3: boolean = false;
+
   filterName: any;
   filterAge: any;
   egyptCity: any;
@@ -86,46 +88,49 @@ export class AdminReportComponent implements OnInit {
 
   archive(id: any) {
     console.log(id);
-    this.load = true;
+    this.load3 = true;
 
     this._ReportService.archive(id).subscribe(data => {
       console.log(data.message);
 
 
       if (data.message == "Report Closed successfully") {
-        this.load = false;
+    
 
         alert("Done");
 
         this.getreport();
         $("#exampleModal").modal("hide");
       } else {
-        this.load = false;
         alert("fail Pleas Try Again");
 
       }
+      
+      this.load3 = false;
     });
   }
   activate(id: any) {
     console.log(id);
-    this.load = true;
+    this.load3 = true;
 
     this._ReportService.activate(id).subscribe(data => {
       console.log(data.message);
 
 
       if (data.message == "Report activeted successfully") {
-        this.load = false;
+      
 
         alert("Done");
         this.getreport();
         $("#exampleModal").modal("hide");
 
       } else {
-        this.load = false;
 
         alert("fail Pleas Try Again");
       }
+
+      
+      this.load3 = false;
     });
   }
 
